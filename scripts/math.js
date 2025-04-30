@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
+  const button = document.getElementById("calculateButton");
+  button.addEventListener("click", calculate);
 });
 
 function calculate() {
@@ -14,12 +15,14 @@ function calculate() {
   const flightFactor = 145;     // kg CO₂ per round trip
   const fuelFactor = 3.6;       // kg CO₂ per liter gasoline
 
-  const result =
-    (coal * coalFactor) +
-    (electric * electricFactor) +
-    (flight * flightFactor) +
-    (fuel * fuelFactor);
+  globalResult =
+  (coal * coalFactor) +
+  (electric * electricFactor) +
+  (flight * flightFactor) +
+  (fuel * fuelFactor);
 
   document.getElementById("result").innerText =
-    `Tahmini Karbon Ayak İzi: ${result.toFixed(2)} kg CO₂/yıl`;
+    `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
+
+  reward();
 }

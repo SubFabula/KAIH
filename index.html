@@ -2,14 +2,14 @@
 <html lang="tr">
   <head>
     <base href="">
-    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/[REPO]/index.html">
-    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/[REPO]/en/index.html">
+    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/index.html">
+    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/index.html">
     <title>Karbon Ayak İzi Hesaplayıcı</title>
-    <meta name="author" content="SubFabula/[MY NAME]">
+    <meta name="author" content="SubFabula/M. Emir Filiz">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Karbon ayak izi hesplama makinesi">
-    <meta name="keywords" content="Karbon Ayak İzi, Hesaplama, Hesaplayıcı, Karbon, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
+    <meta name="keywords" content="Karbon, Hesapla, Karbon Ayak İzi, Hesaplama, Hesaplayıcı, Karbon, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
     <link rel=icon href=assets/favicons/favicon-16x16.ico sizes="16x16" type="image/x-icon">
     <link rel=icon href=assets/favicons/favicon-32x32.ico sizes="32x32" type="image/x-icon">
     <link rel=icon href=assets/favicons/favicon-64x64.ico sizes="64x64" type="image/x-icon">
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- Import the file JavaScript (math.js) -->
     <script defer src="scripts/math.js"></script>
+    <script defer src="scripts/reward.js"></script>
+
   </head>
   <body>
     <h1>WORK IN PROGRESS - index.html</h1>
@@ -28,7 +30,7 @@
      <p>3. <label>Uçuş: <input type="number" id="flightInput"></label></p>
      <p>4. <label>Araba Yakıtı: <input type="number" id="fuelInput">l</label></p>
 
-     <button onclick="calculate()">Hesapla</button>
+     <button id="calculateButton">Hesapla</button>
      <p id="result"></p>
   </body>
 </html>

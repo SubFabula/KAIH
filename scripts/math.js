@@ -11,15 +11,15 @@ function calculate() {
 
   // Basic conversion factors (placeholders — update these later as needed)
   const coalFactor = 2.5;       // kg CO₂ per kg coal
-  const electricFactor = 0.475; // kg CO₂ per kWh electricity (adjusted)
+  const electricFactor = 0.475; // kg CO₂ per kWh electricity
   const flightFactor = 145;     // kg CO₂ per round trip
   const fuelFactor = 3.6;       // kg CO₂ per liter gasoline
 
   globalResult =
-  (coal * coalFactor) +
-  (electric * electricFactor) +
-  (flight * flightFactor) +
-  (fuel * fuelFactor);
+    (coal * coalFactor) +
+    (electric * electricFactor) +
+    (flight * flightFactor) +
+    (fuel * fuelFactor);
 
   document.getElementById("result").innerText =
     `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;

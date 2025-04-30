@@ -16,20 +16,31 @@
     <link rel=icon href=assets/favicons/favicon-128x128.ico sizes="128x128" type="image/x-icon">
     <link rel=icon href=assets/favicons/favicon-256x256.ico sizes="256x256" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <!-- Import the file JavaScript (math.js) -->
     <script defer src="scripts/math.js"></script>
     <script defer src="scripts/reward.js"></script>
   </head>
   <body>
-    <h1>WORK IN PROGRESS - index.html</h1>
-    <!-- Test1 -->
-     <h2>Yıllık Kullanım</h2>
-     <p>1. <label>Kömür: <input type="number" id="coalInput">kg</label></p>
-     <p>2. <label>Elektrik: <input type="number" id="electricInput">vat</label></p>
-     <p>3. <label>Uçuş: <input type="number" id="flightInput"></label></p>
-     <p>4. <label>Araba Yakıtı: <input type="number" id="fuelInput">l</label></p>
-
-     <button id="calculateButton">Hesapla</button>
-     <p id="result"></p>
+    <div class="header">
+      <img src="assets/header-background.jpg" alt="">
+      <div class="header-text">
+        <h1>Karbon Ayak İzi Hesaplayıcı</h1>
+        <h2>"Yeşil bir dünya için..."</h2>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div class="numberInput">
+          <h2>Yıllık Kullanım</h2>
+          <p>1. <label>Kömür: <input type="number" id="coalInput">kg</label></p>
+          <p>2. <label>Elektrik: <input type="number" id="electricInput">vat</label></p>
+          <p>3. <label>Uçuş: <input type="number" id="flightInput"></label></p>
+          <p>4. <label>Araba Yakıtı: <input type="number" id="fuelInput">l</label></p>   
+          <div class="resultPreview">
+            <button id="calculateButton">Hesapla</button>
+            <p id="result"></p>
+          </div> 
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,4 +1,4 @@
-function reward() {
+function reward(globalResult) {
   if (globalResult <= 1000.00) {
     let rewardVideo = document.getElementById("rewardVideo");
 

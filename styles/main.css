@@ -50,6 +50,7 @@ body {
   border-radius: 20px;
   box-sizing: border-box;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: -5;
 }
 
 
@@ -115,10 +116,26 @@ div a:focus {
   outline: 3px solid #0000c5;
 }
 
-/* Input */
+.content h2 {
+  margin-bottom: 0px;
+}
+
+.content p {
+  font-size: smaller;
+  margin-top: auto;
+}
+
+/* Input */ /*    DONT FORGET THİS!!!!DONT FORGET THİS!!!!DONT FORGET THİS!!!!
 input::placeholder {
 
 }
+*/
+/* Calculate Button */ /*  DONT FORGET THİS!!!!DONT FORGET THİS!!!!DONT FORGET THİS!!!!DONT FORGET THİS!!!!
+#calculateButton {
+  
+}
+*/
+
 
 /* RewardVideo */
 #resultPreview {
@@ -128,6 +145,11 @@ input::placeholder {
   border-radius: 5px;
   box-sizing: border-box;
   box-shadow: 0 0 20px rgba(0, 44, 1, 0.658);
+  z-index: -4;
+}
+
+#result {
+  margin-top: 20px;
 }
 
 #rewardVideoContainer {

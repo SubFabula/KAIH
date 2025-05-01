@@ -1,27 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("calculateButton");
-});
-
-function calculate() {
+function calculate(result) {
   const coal = parseFloat(document.getElementById("coalInput").value) || 0;
   const electric = parseFloat(document.getElementById("electricInput").value) || 0;
   const flight = parseFloat(document.getElementById("flightInput").value) || 0;
   const fuel = parseFloat(document.getElementById("fuelInput").value) || 0;
+  const gas = parseFloat(document.getElementById("gasInput").value) || 0;
 
-  // Basic conversion factors (placeholders — update these later as needed)
-  const coalFactor = 2.5;       // kg CO₂ per kg coal
-  const electricFactor = 0.475; // kg CO₂ per kWh electricity
-  const flightFactor = 145;     // kg CO₂ per round trip
-  const fuelFactor = 3.6;       // kg CO₂ per liter gasoline
+  const flightUnit = document.getElementById("flightUnit").value;
+  const fuelType = document.getElementById("fuelType").value;
 
-  globalResult =
+  // CO₂ Factors
+  const coalFactor = 2.45;           // kg CO₂ / kg coal (Turkey/IPCC avg)
+  const electricFactor = 0.41;       // kg CO₂ / kWh
+  const flightFactorPerTrip = 145;   // kg CO₂ / round trip
+  const flightFactorPerKm = 0.18;    // kg CO₂ / km
+  const fuelFactor = fuelType === "diesel" ? 2.68 : 2.33;
+  const gasFactor = 2.05;            // kg CO₂ / m³
+
+  const flightResult = (flightUnit === "trip")
+    ? (flight * flightFactorPerTrip)
+    : (flight * flightFactorPerKm);
+
+  const globalResult =
     (coal * coalFactor) +
     (electric * electricFactor) +
-    (flight * flightFactor) +
-    (fuel * fuelFactor);
+    flightResult +
+    (fuel * fuelFactor) +
+    (gas * gasFactor);
 
   document.getElementById("result").innerText =
     `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
 
-  reward();
+  reward(globalResult);
 }

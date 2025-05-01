@@ -18,6 +18,6 @@ function requiredInputValidation(e) {
   if (!allFilled) {
     alert("Lütfen boş alanları doldurun!");
   } else {
-    calculate();
+    calculate(result);
   }
 }

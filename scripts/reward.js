@@ -1,32 +1,42 @@
 function reward() {
   if (globalResult <= 1000.00) {
-    let video = document.getElementById("rewardVideo");
+    let rewardVideo = document.getElementById("rewardVideo");
 
-    // Create the video only if it doesn't exist yet
-    if (!video) {
-      video = document.createElement("video");
-      video.id = "rewardVideo";
-      video.src = "assets/videos/reward.mp4";
-      video.controls = true;
-      video.width = 640;
-      video.style.display = "block";
-      document.body.appendChild(video);
+    // If the video doesn't already exist
+    if (!rewardVideo) {
+      // First create and append the rewardVideoContainerDiv
+      const rewardVideoContainerDiv = document.createElement("div");
+      rewardVideoContainerDiv.id = "rewardVideoContainer";
 
-      // Wait for video to be appended and loaded before playing
-      video.addEventListener("loadeddata", () => {
-        video.play();
+      // Then append the container to .resultPreview
+      const resultPreviewDiv = document.querySelector('#resultPreview');
+      resultPreviewDiv.appendChild(rewardVideoContainerDiv);
+
+      // Only after the first two queries - create and append the video inside the container
+      rewardVideo = document.createElement("video");
+      rewardVideo.id = "rewardVideo";
+      rewardVideo.src = "assets/videos/reward.mp4";
+      rewardVideo.controls = true;
+
+      rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
+
+      // Play only after it’s loaded
+      rewardVideo.addEventListener("loadeddata", () => {
+        rewardVideo.play();
       });
+
     } else {
-      // If it already exists, just reset and play again
-      video.style.display = "block";
-      video.currentTime = 0;
-      video.play();
+      // Otherwise if tis already there, reset it
+      rewardVideo.currentTime = 0;
+      rewardVideo.play();
     }
+
   } else {
-    const video = document.getElementById("rewardVideo");
-    if (video) {
-      video.pause();
-      video.style.display = "none";
+    // Hide the video if it exists and when the condition fails
+    const rewardVideo = document.getElementById("rewardVideo");
+    if (rewardVideo) {
+      rewardVideo.pause();
+      rewardVideo.style.display = "none";
     }
   }
 }

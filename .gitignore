@@ -4,6 +4,7 @@
 # Folders
 .gitignoredFolder
 .gitignoredVlog
+*.vscode
 
 # Extensions
 *.ink

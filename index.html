@@ -5,16 +5,17 @@
     <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/index.html">
     <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/index.html">
     <title>Karbon Ayak İzi Hesaplayıcı</title>
-    <meta name="author" content="SubFabula/M. Emir Filiz">
+    <meta name="author" content="SubFabula/[my name]">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Karbon ayak izi hesplama makinesi">
     <meta name="keywords" content="Karbon, Hesapla, Karbon Ayak İzi, Hesaplama, Hesaplayıcı, Karbon, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
-    <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resulotions. -->
+    <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resolutions. -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/math.js"></script>
     <script defer src="scripts/reward.js"></script>
+    <script defer src="scripts/validation.js"></script>
   </head>
   <body>
     <div class="header">
@@ -25,17 +26,23 @@
       </div>
     </div>
     <div class="content">
-      <div class="container">
-        <div class="numberInput">
+      <div class="container-background">
+        <div class="container">
           <h2>Yıllık Kullanım</h2>
-          <p>1. <label>Kömür: <input type="number" id="coalInput">kg</label></p>
-          <p>2. <label>Elektrik: <input type="number" id="electricInput">vat</label></p>
-          <p>3. <label>Uçuş: <input type="number" id="flightInput"></label></p>
-          <p>4. <label>Araba Yakıtı: <input type="number" id="fuelInput">l</label></p>   
-          <div class="resultPreview">
-            <button id="calculateButton">Hesapla</button>
-            <p id="result"></p>
-          </div> 
+          <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
+            <p>1. Bu yıl en az kaç kilo kömür kullanıyorsunuz?<br>
+              <label><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!">kg</label></p>
+            <p>2. Bu yıl en az kaç kilovat elektrik sarf ediyorsunuz?<br>
+              <label><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!">kW</label></p>
+            <p>3. Bu yıl kaç kere uçak ile yolculuk yaptınız?<i>(gidiş-geliş çift sayılır)</i><br>
+              <label><input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!"></label></p>
+            <p>4. Bu yıl en az kaç litre araba yakıtı tükettiniz?<br> <!-- Yakıt türlerini değiştirmek için ayar ekle. -->
+              <label><input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!">l</label></p>   
+            <div id="resultPreview">
+              <button id="calculateButton">Hesapla</button>
+              <p id="result"></p>
+            </div> 
+          </div>
         </div>
       </div>
     </div>

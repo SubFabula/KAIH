@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("calculateButton");
-  button.addEventListener("click", calculate);
+  const input = document.getElementById("calculateButton");
 });
 
 function calculate() {

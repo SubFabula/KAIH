@@ -20,7 +20,9 @@
   </head>
   <body>
     <div class="header">
-      <img src="assets/header-background.jpg" alt="">
+      <div id="img-foreground">
+        <img src="assets/header-background.jpg" alt="">
+      </div>
       <div class="header-text">
         <h1>Karbon Ayak İzi Hesaplayıcı</h1>
         <h3><i>"Yeşil bir dünya için..."</i></h3>
@@ -33,15 +35,15 @@
           <p><i>Eğer aşağıdaki sorularda sizde olmayan yada kullanmadığınız birşey varsa oraya 0(sıfır) koyabilirsiniz. Ayrıca, bütün bunların nasıl hesaplandığını görmek için <a href="https://subfabula.github.io/KAIH/source">buraya</a> basın.</i></p>
           <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
             <!-- kömür -->
-            <p>1. Bu yıl en az kaç kilo kömür kullanıyorsunuz?<br>
+            <p>1. Her ay en az kaç kilo kömür kullanıyorsunuz?<br>
               <label><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"></label>
             </p>
             <!-- elektrik -->
-            <p>2. Bu yıl en az kaç kilovatlık elektrik sarf ediyorsunuz?<br>
+            <p>2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz?<br>
               <label><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
             </p>
             <!-- uçak -->
-            <p>3. Bu yıl uçakla ne kadar yolculuk yaptınız?<br>
+            <p>3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
               <label><input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!">
                 <select id="flightUnit">
                   <option value="trip">Yolculuk (Gidiş-Dönüş)</option>
@@ -50,7 +52,7 @@
               </label>
             </p>
             <!-- araba yakıtı -->
-            <p>4. Bu yıl en az kaç litre araba yakıtı tükettiniz?<br>
+            <p>4. Her ay en az kaç litre araba yakıtı tüketiyorsunuz?<br>
               <label>
                 <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!">
                 <select id="fuelType">
@@ -60,11 +62,15 @@
               </label>
             </p>
             <!-- doğal gaz -->
-            <p>5. Bu yıl en az ne kadar (m³) doğal gaz tükettiniz?<br>
+            <p>5. Her ay en az ne kadar doğal gaz tüketiyorsunuz?<br>
               <label><input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!"></label>
+              <select name="" id="gasUnit">
+                <option value="cubic-metre">m³ (Metre Küp)</option>
+                <option value="per-tank">Tüp</option>
+              </select>
             </p>
             <div id="resultPreview">
-              <!-- From Uiverse.io by MuhammadHasann --> 
+              <!-- From Uiverse.io by MuhammadHasann --> <!-- the style is from him -->
               <button id="calculateButton">Hesapla
                 <div class="icon-1">
                   <svg

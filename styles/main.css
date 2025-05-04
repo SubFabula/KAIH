@@ -8,6 +8,25 @@
     font-size: 3vw;
   }
 
+  #numberInput input, #numberInput select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  #numberInput input {
+    padding-left: 12px;
+    padding-right: 10px;
+    width: 98%;
+    border-radius: 15px 15px 0px 0px;
+  }
+  
+  #numberInput select {
+    padding-left: 12px;
+    padding-right: 20px;
+    width: 98%;
+    border-radius: 0px 0px 15px 15px;
+  }
+
   #rewardVideo {
     width: 15rem;
   }
@@ -21,6 +40,25 @@
 
   .header .header-text {
     font-size: 2vw; 
+  }
+
+  #numberInput input, #numberInput select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  #numberInput input {
+    padding-left: 12px;
+    padding-right: 10px;
+    width: 40%;
+    border-radius: 15px 0px 0px 15px;
+  }
+  
+  #numberInput select {
+    padding-left: 12px;
+    padding-right: 20px;
+    width: 17%;
+    border-radius: 0px 15px 15px 0px;
   }
 
   #rewardVideo {
@@ -56,11 +94,10 @@ body {
 
 /* Header */
 .header {
-  /* height: @media; */
+/*height: @media;*/
   position: relative;
   justify-content: center;
   align-items: center;
-  z-index: -10000;
 }
 
 .header img {
@@ -70,14 +107,27 @@ body {
   display: block;
 }
 
+#background-wrapper {
+  position: fixed; /* or absolute if needed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* keeps it behind everything */
+  pointer-events: none; /* prevents blocking clicks */
+  overflow: hidden;
+}
+
 #img-foreground {
-  -webkit-mask-image: linear-gradient(black, transparent);
+  width: 100%;
+  height: auto;
   mask-image: linear-gradient(black, transparent);
+  -webkit-mask-image: linear-gradient(black, transparent);
 }
 
 .header .header-text {
   color: #ffffff;
-  /* font-size: @media; */
+/*font-size: @media;*/
   position: absolute;
   text-align: center;
   top: 50%;
@@ -97,6 +147,7 @@ body {
 
 a {
   text-decoration: none;
+  pointer-events: auto;
 }
 
 div a:hover {
@@ -121,22 +172,23 @@ div a:focus {
   outline: none;
   margin-top: 4px 0;
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
+/*padding-top: @media;
+  padding-bottom: @media;*/
 }
 
 #numberInput input {
-  padding-left: 12px;
-  padding-right: 10px;
-  width: 40%;
-  border-radius: 15px 0px 0px 15px;
+  display: inline-block;
+/*padding-left: @media;
+  padding-right: @media;
+  width: @media;
+  border-radius: 15px 0px 0px 15px;*/
 }
 
 #numberInput select {
   padding-left: 12px;
-  padding-right: 20px;
-  width: 17%;
-  border-radius: 0px 15px 15px 0px;
+/*padding-right: @media;
+  width: @media;
+  border-radius: 0px 15px 15px 0px;*/
 }
 
 /* RewardVideo */

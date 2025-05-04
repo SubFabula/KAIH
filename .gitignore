@@ -1,5 +1,6 @@
 # Files
 *.gitignored.*
+*.test_.*
 
 # Folders
 .gitignoredFolder

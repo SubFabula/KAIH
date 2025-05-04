@@ -7,6 +7,7 @@ function calculate(result) {
 
   const flightUnit = document.getElementById("flightUnit").value;
   const fuelType = document.getElementById("fuelType").value;
+  const gasUnit = document.getElementById("gasUnit").value;
 
   // CO₂ Factors
   const coalFactor = 2.45;           // kg CO₂ / kg coal (Turkey/IPCC avg)
@@ -14,7 +15,7 @@ function calculate(result) {
   const flightFactorPerTrip = 145;   // kg CO₂ / round trip
   const flightFactorPerKm = 0.18;    // kg CO₂ / km
   const fuelFactor = fuelType === "diesel" ? 2.68 : 2.33;
-  const gasFactor = 2.05;            // kg CO₂ / m³
+  const gasFactor = gasUnit === "per-tank" ? 23.5 : 2.05; // kg CO₂ / per tank or m³
 
   const flightResult = (flightUnit === "trip")
     ? (flight * flightFactorPerTrip)

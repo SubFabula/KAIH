@@ -65,12 +65,13 @@
             <p>5. Her ay en az ne kadar doğal gaz tüketiyorsunuz?<br>
               <label><input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!"></label>
               <select name="" id="gasUnit">
-                <option value="cubic-metre">m³ (Metre Küp)</option>
+                <option value="ÇALIŞMA AŞAMASINDA">ÇALIŞMA AŞAMASINDA</option> <!-- try span to make it wider along with the text -> https://css-tricks.com/auto-growing-inputs-textareas/ -->
+                <option value="cubic-metre">m³ (Metre Küp) (şuanda kullanımda olan)</option>
                 <option value="per-tank">Tüp</option>
               </select>
             </p>
             <div id="resultPreview">
-              <!-- From Uiverse.io by MuhammadHasann --> <!-- the style is from him -->
+              <!-- From Uiverse.io by MuhammadHasann --> <!-- the svg animation stuff is from him -->
               <button id="calculateButton">Hesapla
                 <div class="icon-1">
                   <svg

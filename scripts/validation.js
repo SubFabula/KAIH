@@ -1,17 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   const calculateButton = document.getElementById("calculateButton");
-  const submitCalculation = document.getElementById("calculateButton");
-  const styleCalculation = document.getElementById("calculateButton");
-  const styleCalculationStop = document.getElementById("calculateButton");
-  submitCalculation.addEventListener("click", requiredInputValidation);
-  styleCalculation.addEventListener("pointerover", visibleIndicatorOfValidation);
-  styleCalculationStop.addEventListener("pointerout", visibleIndicatorOfValidationStop);
+  const numberInput = document.getElementById("numberInput");
+  // SCRIPT
+  calculateButton.addEventListener("click", requiredInputValidation);
+  // STYLE
+  numberInput.addEventListener("focusin", vIOVforFields); // "vIOV = visibleIndicatorOfValidation"
+  numberInput.addEventListener("focusout", vIOVforFieldsStop);
+  numberInput.addEventListener("input", vIOVforFields);
+  calculateButton.addEventListener("pointerover", visibleIndicatorOfValidation);
+  calculateButton.addEventListener("pointerout", visibleIndicatorOfValidationStop);
+  numberInput.addEventListener("input", () => {
+    if (isHovering) {
+      visibleIndicatorOfValidation();
+    }
+  });
 
   calculationFields = document.querySelectorAll('#numberInput input[type="number"]'); // turned this to global
 });
 
-// Visible validation by style
+// STYLE // Visible validation by style
 function visibleIndicatorOfValidation() {
+  isHovering = true;
   let allFilled = true;
 
   calculationFields.forEach(input => {
@@ -22,24 +31,50 @@ function visibleIndicatorOfValidation() {
 
   if (!allFilled) {
     calculateButton.style.backgroundColor = '#ff0000' ;
+    calculateButton.style.border = '2px solid #ff0000';
     calculateButton.style.color = 'black';
   } else {
     calculateButton.style.backgroundColor = '#22ff00';
+    calculateButton.style.border = '2px solid #22ff00';
     calculateButton.style.color = 'black';
   }
 }
 
+// STYLE // Validate visible fields
+function vIOVforFields(event) {
+  const field = event.target;
+  if (field.matches('input[type="number"], select')) {
+    if (field.value.trim() === "") {
+      field.style.border = '2px solid #ff0000';
+    } else {
+      field.style.border = '2px solid #22ff00';
+    }
+  }
+}
+
+// STYLE
 function visibleIndicatorOfValidationStop() { // to stop the color from being stuck and change back to its original one
-  calculateButton.style.transition = 'background-color 0.5s, color 0.5s';
+  isHovering = false;
+  calculateButton.style.transition = 'background-color 0.5s, border 0.5s, color 0.5s';
   calculateButton.style.backgroundColor = '';
+  calculateButton.style.border = '';
   calculateButton.style.color = '';
 }
 
-// The actual validation stuff
+// STYLE // Clear validation styles
+function vIOVforFieldsStop(event) {
+  const field = event.target;
+  if (field.matches('input[type="number"], select')) {
+    field.style.transition = 'border 0.5s';
+    field.style.border = '';
+  }
+}
+
+// SCRIPT // The actual validation stuff
 function requiredInputValidation(e) { e.preventDefault();
   let allFilled = true;
 
-  calculationFields.forEach(input => {
+  calculationFields.forEach(input => {  
     if (input.value.trim() === "") {
       allFilled = false;
     }

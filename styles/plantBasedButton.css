@@ -6,18 +6,18 @@
   background: #fec195;
   font-size: 17px;
   font-weight: 500;
-  color: #181818;
+  color: #000000;
   cursor: pointer;
-  border: 1px solid #fec195;
+  border: 2px solid #fec195;
   border-radius: 8px;
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
 }
 
 #calculateButton:hover {
-  border: 1px solid #f3b182;
-  background: #fec195;
-  animation: wind 2s ease-in-out infinite;
-  /* validation.js */
+  color: #000000;
+/*background-color: validation.js;
+  color: validation.js;
+  transition-duration: validation.js;*/
 }
 
 @keyframes wind {

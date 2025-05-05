@@ -14,7 +14,7 @@ function calculate(result) {
   const electricFactor = 0.41;       // kg CO₂ / kWh
   const flightFactorPerTrip = 145;   // kg CO₂ / round trip
   const flightFactorPerKm = 0.18;    // kg CO₂ / km
-  const fuelFactor = fuelType === "diesel" ? 2.68 : 2.33;
+  const fuelFactor = fuelType === "diesel" ? 2.68 : 2.33; // kg CO₂ / by diesel or fuel
   const gasFactor = gasUnit === "per-tank" ? 23.5 : 2.05; // kg CO₂ / per tank or m³
 
   const flightResult = (flightUnit === "trip")

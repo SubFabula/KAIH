@@ -2,8 +2,8 @@
 <html lang="tr">
   <head>
     <base href="">
-    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/index.html">
-    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/index.html">
+    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/">
+    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/">
     <title>Karbon Ayak İzi Hesaplayıcı</title>
     <meta name="author" content="SubFabula/M. Emir Filiz">
     <meta charset="UTF-8">
@@ -12,13 +12,24 @@
     <meta name="keywords" content="KAIH, K.A.I.H., KAİH, K.A.İ.H., Kaıh, K.a.ı.h., Kaih, K.a.i.h., Karbon, Hesapla, Karbon Ayak İzi, Hesaplama, Hesaplayıcı, Karbon, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
     <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resolutions. -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/simpleui.css">
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/math.js"></script>
     <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/validation.js"></script>
+    <script defer src="scripts/langSwitch.js"></script>
+    <script defer src="scripts/_localStorage/langPreference.js"></script>
   </head>
   <body>
+    <div class="simple-ui">
+      <div id="lang-selectDiv">
+        <select name="" id="lang-select">
+          <option value="option-tr">Türkçe</option>
+          <option value="option-en">English</option>
+        </select>
+      </div>    
+    </div>
     <div class="header">
       <div id="background-wrapper">
         <img id="img-foreground" src="assets/header-background.jpg" alt="">
@@ -32,22 +43,22 @@
       <div class="container-background">
         <div class="container">
           <h2>Aşağıdaki soruları en doğru şekilde cevaplayın ve karbon ayak izinizi hesaplamak için sondaki sorudan sonra gelen "Hesapla" butonuna basın.</h2>
-          <p><i>Eğer aşağıdaki sorularda sizde olmayan yada kullanmadığınız birşey varsa oraya 0(sıfır) koyabilirsiniz. Ayrıca, bütün bunların nasıl hesaplandığını görmek için <a href="https://subfabula.github.io/KAIH/source">buraya</a> basın.</i></p>
+          <p><i>Eğer aşağıdaki sorularda sizde olmayan yada kullanmadığınız birşey varsa oraya 0(sıfır) koyabilirsiniz. Ayrıca, bütün bunların nasıl hesaplandığını görmek için <a href="https://subfabula.github.io/KAIH/source/">buraya</a> basın.</i></p>
           <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
             <!-- kömür -->
             <p>1. Her ay en az kaç kilo kömür kullanıyorsunuz?<br>
-              <label><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"></label>
+              <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"></label>
             </p>
             <!-- elektrik -->
             <p>2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz?<br>
-              <label><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
+              <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
             </p>
             <!-- uçak -->
             <p>3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
               <label><input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!">
                 <select id="flightUnit">
                   <option value="trip">Yolculuk (Gidiş-Dönüş)</option>
-                  <option value="km">Kilometre (tek yön)</option>
+                  <option value="km">Kilometre (Tek yön)</option>
                 </select>
               </label>
             </p>
@@ -66,7 +77,7 @@
               <label><input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!"></label>
               <select id="gasUnit">
                 <option value="cubic-metre">m³ (Metre Küp)</option>
-                <option value="per-tank">Tüp</option>
+                <option value="per-tank">Tüp (12Kg)</option>
               </select>
             </p>
             <div id="resultPreview">

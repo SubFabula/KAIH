@@ -1,0 +1,20 @@
+.simple-ui {
+  position: sticky;
+  top: 0;
+  background-color: green;
+  width: 50px;
+  padding: 40px 40px;
+  margin: -20px;
+  margin-top: -15px;
+  border-radius: 0px 0px 100px 0px;
+}
+
+#lang-selectDiv {
+  margin-left: -15px;
+  margin-top: -20px;
+}
+
+#lang-select {
+  border-radius: 100px;
+  padding: 10px;
+}

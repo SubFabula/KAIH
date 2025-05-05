@@ -43,7 +43,7 @@ function visibleIndicatorOfValidation() {
 // STYLE // Validate visible fields
 function vIOVforFields(event) {
   const field = event.target;
-  if (field.matches('input[type="number"], select')) {
+  if (field.matches('input[type="number"]')) {
     if (field.value.trim() === "") {
       field.style.border = '2px solid #ff0000';
     } else {
@@ -64,7 +64,7 @@ function visibleIndicatorOfValidationStop() { // to stop the color from being st
 // STYLE // Clear validation styles
 function vIOVforFieldsStop(event) {
   const field = event.target;
-  if (field.matches('input[type="number"], select')) {
+  if (field.matches('input[type="number"]')) {
     field.style.transition = 'border 0.5s';
     field.style.border = '';
   }

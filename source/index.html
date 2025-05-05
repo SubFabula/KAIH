@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <base href="">
-    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/index.html">
-    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/index.html">
+    <base href="/">
+    <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/source/">
+    <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/source/en/">
     <title>K.A.İ.H. Kaynakça</title>
     <meta name="author" content="SubFabula/M. Emir Filiz">
     <meta charset="UTF-8">
@@ -12,8 +12,20 @@
     <meta name="keywords" content="KAIH, K.A.I.H., KAİH, K.A.İ.H., Kaıh, K.a.ı.h., Kaih, K.a.i.h., Karbon, Hesapla, Karbon Ayak İzi, Hesaplama, Hesaplayıcı, Karbon, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
     <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resolutions. -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/simpleui.css">
+    <!-- Import JavaScript -->
+    <script defer src="scripts/langSwitch.js"></script>
+    <script defer src="scripts/_localStorage/langPreference.js"></script>
   </head>
   <body>
+    <div class="simple-ui">
+      <div id="lang-selectDiv">
+        <select name="" id="lang-select">
+          <option value="option-tr">Türkçe</option>
+          <option value="option-en">English</option>
+        </select>
+      </div>    
+    </div>
     <div class="header">
       <div id="background-wrapper">
         <img id="img-foreground" src="assets/header-background.jpg" alt="">

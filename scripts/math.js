@@ -29,7 +29,9 @@ function calculate(result) {
     (gas * gasFactor);
 
   document.getElementById("result").innerText =
-    `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
+    isEnglish
+      ? `Supposed Carbon Foot Print: ${globalResult.toFixed(2)} kg CO₂/year`
+      : `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
 
   reward(globalResult);
 }

@@ -1,20 +1,64 @@
+/* Mobile */
+@media (max-width: 720px) {
+  #splash-text h6  {
+    visibility: hidden; 
+  }
+}
+/* ^ Mobile ^ */
+
 .simple-ui {
   position: sticky;
   top: 0;
+  right: 0;
+  z-index: var(--z-ui);
   background-color: green;
   width: 50px;
   padding: 40px 40px;
-  margin: -20px;
-  margin-top: -15px;
+  padding-right: 45px;
+  margin: -25px;
   border-radius: 0px 0px 100px 0px;
 }
 
 #lang-selectDiv {
-  margin-left: -15px;
+  top: inherit;
+  right: inherit;
+  margin-left: -10px;
   margin-top: -20px;
 }
 
 #lang-select {
   border-radius: 100px;
   padding: 10px;
+}
+
+#splash-text {
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  font-size: 50px;
+  margin-top: -50px;
+  transform: translateY(-550px);
+  transform: translateX(-10px);
+}
+
+#splash-text h6 {
+  margin: auto;
+  padding: auto;
+  transform: rotate(-30deg);
+}
+
+/* temporary */
+
+#splash-text h6  {
+  visibility: hidden; /* coulnt work with it*/
+}
+
+.simple-ui h6 {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  white-space: nowrap;
+  transform: rotate(-10deg);
+  color: white;
 }

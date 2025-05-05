@@ -81,7 +81,11 @@ function requiredInputValidation(e) { e.preventDefault();
   });
 
   if (!allFilled) {
-    alert("Lütfen boş alanları doldurun!");
+    if (isEnglish) {
+      alert("Please fill all empty queries!");
+    } else {
+      alert("Lütfen boş alanları doldurun!");
+    }
   } else {
     calculate(result);
   }

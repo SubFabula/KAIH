@@ -1,0 +1,13 @@
+:root {
+  /* main.css - Body */
+  --z-scrollY: auto; /* body */
+  --z-scrollX: hidden; /* body */
+
+  /* simpleui.css */
+  --z-ui: 0; /* .simple-ui */
+  --z-backgroundImg: -5; /* #background-wrapper */
+  /* main.css */
+  --z-header: -3;
+  --z-container: -2; /* .container */
+  --z-: ;
+}

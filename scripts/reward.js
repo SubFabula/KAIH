@@ -23,12 +23,14 @@ function reward(globalResult) {
       // Play only after it’s loaded
       rewardVideo.addEventListener("loadeddata", () => {
         rewardVideo.play();
+        rewardVideo.style.display = "block";
       });
 
     } else {
       // Otherwise if tis already there, reset it
       rewardVideo.currentTime = 0;
       rewardVideo.play();
+      rewardVideo.style.display = "block";
     }
 
   } else {

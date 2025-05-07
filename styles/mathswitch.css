@@ -1,0 +1,16 @@
+#switch-math-type-div {
+  border: 1px solid;
+  display: flex;
+  flex-grow: initial;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+#byCount {
+  flex-grow: 1;
+}
+
+#byBill {
+  flex-grow: 1;
+}

@@ -87,6 +87,6 @@ function requiredInputValidation(e) { e.preventDefault();
       alert("Lütfen boş alanları doldurun!");
     }
   } else {
-    calculate(result);
+    calculate();
   }
 }

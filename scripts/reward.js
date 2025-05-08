@@ -1,50 +1,48 @@
 function reward(globalResult) {
   const rewardVideoPreDiv = document.getElementById("rewardVideoPreDiv")
-  if (globalResult <= 1000.00) {
-    let rewardVideo = document.getElementById("rewardVideo");
-    rewardVideoPreDiv.style.display = `block`;
+  let rewardVideo = document.getElementById("rewardVideo");
+  rewardVideoPreDiv.style.display = `block`;
 
-    // If the video doesn't already exist
-    if (!rewardVideo) {
-      // First create and append the rewardVideoContainerDiv
-      const rewardVideoContainerDiv = document.createElement("div");
-      rewardVideoContainerDiv.id = "rewardVideoContainer";
+  // If the video doesn't already exist
+  if (!rewardVideo) {
+    // First create and append the rewardVideoContainerDiv
+    const rewardVideoContainerDiv = document.createElement("div");
+    rewardVideoContainerDiv.id = "rewardVideoContainer";
 
-      // Then append the container to .resultPreview
-      const resultPreviewDiv = document.querySelector('#resultPreview');
-      resultPreviewDiv.appendChild(rewardVideoContainerDiv);
+    // Then append the container to .resultPreview
+    const resultPreviewDiv = document.querySelector('#resultPreview');
+    resultPreviewDiv.appendChild(rewardVideoContainerDiv);
 
-      // Only after the first two queries - create and append the video inside the container
+    // Only after the first two queries - create and append the video inside the container
       
-      if (globalResult <= 1000.00) {
-        rewardVideo = document.createElement("video");
-        rewardVideo.id = "rewardVideo";
-        rewardVideo.src = "assets/videos/rewardgood.mp4";
-        rewardVideo.controls = true;
-      } else {
-        rewardVideo = document.createElement("video");
-        rewardVideo.id = "rewardVideo";
-        rewardVideo.src = "assets/videos/rewardbad.mp4"; // needs fixing
-        rewardVideo.controls = true;
-      }
-      
-
-      rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
-
-      // Play only after it’s loaded
-      rewardVideo.addEventListener("loadeddata", () => {
-        rewardVideo.play();
-        rewardVideo.style.display = "block";
-      });
-
+    if (globalResult <= 1000.00) {
+      rewardVideo = document.createElement("video");
+      rewardVideo.id = "rewardVideo";
+      rewardVideo.src = "assets/videos/rewardgood.mp4";
+      rewardVideo.controls = true;
     } else {
-      // Otherwise if tis already there, reset it
-      rewardVideo.currentTime = 0;
-      rewardVideo.play();
-      rewardVideo.style.display = "block";
+      rewardVideo = document.createElement("video");
+      rewardVideo.id = "rewardVideo";
+      rewardVideo.src = "assets/videos/rewardbad.mp4"; // needs fixing
+      rewardVideo.controls = true;
     }
 
+    rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
+
+    // Play only after it’s loaded
+    rewardVideo.addEventListener("loadeddata", () => {
+      rewardVideo.play();
+      rewardVideo.style.display = "block";
+    });
+
   } else {
+    // Otherwise if tis already there, reset it
+    rewardVideo.currentTime = 0;
+    rewardVideo.play();
+    rewardVideo.style.display = "block";
+  }
+
+  } /*else {
     // Hide the video if it exists and when the condition fails
     const rewardVideo = document.getElementById("rewardVideo");
     if (rewardVideo) {
@@ -52,4 +50,4 @@ function reward(globalResult) {
       rewardVideo.style.display = "none";
     }
   }
-}
+}*/

@@ -48,6 +48,10 @@
     border-right-color: black;
   }
 
+  #resultPreview {
+    margin: 10px -5%;
+  }
+
   #rewardVideo {
     width: 15rem;
   }
@@ -99,6 +103,10 @@
     border-bottom-color: black;
     border-left-color: gray;
     border-right-color: black;
+  }
+
+  #resultPreview {
+    margin: 30px auto;
   }
 
   #rewardVideo {
@@ -246,7 +254,7 @@ div a:focus {
 
 /* Result */
 #resultPreview {
-  margin: 30px auto;
+  /*margin: @media;*/
   padding: 20px;
   background-color: #024a0189;
   border-radius: 5px;
@@ -254,7 +262,7 @@ div a:focus {
   box-shadow: 0 0 20px rgba(0, 44, 1, 0.658);
   z-index: -4;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
+  }
 
 .result { /* bu kodu veren kişiye teşşekkürler */
   margin-top: 25px;

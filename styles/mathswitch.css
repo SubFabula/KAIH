@@ -1,10 +1,46 @@
+/* v Mobile v */
+@media (max-width: 720px) {
+  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill  {
+    display: none;
+  }
+}
+/* ^ Mobile ^ */
+
+/* v Desktop v */
+@media (min-width: 720px) {
+  #switch-math-type-div {
+    border: 1px solid;
+  }
+
+  #switch-math-type-div input {
+    border-bottom: 3px solid #999;
+  }
+}
+/* ^ Desktop ^ */
+
 #switch-math-type-div {
-  border: 1px solid;
+/*border: @media;*/
   display: flex;
   flex-grow: initial;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+}
+
+#switch-math-type-div input {
+  border: 1px solid #ccc; /* got from chatgpt too */
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #ddd;
+/*border-bottom: @media;*/
+}
+
+#switch-math-type-div input.selected {
+  background-color: var(--z-containerColor); /* got from chatgpt too */
+  border-bottom: none;
+  z-index: var(--z-selected);
+  position: relative;
 }
 
 #byCount {
@@ -14,3 +50,15 @@
 #byBill {
   flex-grow: 1;
 }
+
+
+
+
+/*
+#countInputs, #billInputs {
+  background-color: #fff;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+*/

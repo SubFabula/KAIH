@@ -1,13 +1,16 @@
 :root {
-  /* main.css - Body */
+  /* main.css */
   --z-scrollY: auto; /* body */
   --z-scrollX: hidden; /* body */
+  --z-header: -3; /* .header */
+  --z-container: -2; /* .container */
+  --z-containerColor: #d7fed6; /* .container and #switch-math-type-div input.selected in mathswitch.css*/
+  --z-a: 6;
 
   /* simpleui.css */
-  --z-ui: 0; /* .simple-ui */
+  --z-ui: 5; /* .simple-ui */
   --z-backgroundImg: -5; /* #background-wrapper */
-  /* main.css */
-  --z-header: -3;
-  --z-container: -2; /* .container */
-  --z-: ;
+
+  /* mathswitch.css*/
+  --z-selected: 1; /* #switch-math-type-div input.selected */
 }

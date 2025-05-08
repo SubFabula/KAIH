@@ -46,19 +46,33 @@ function calculate() {
   resultDiv.style.display = `block`;
   chartDiv.style.display = `flex`;
 
+  const coalResultToF2 = parseFloat((coalResult).toFixed(2));
+  const electricResultToF2 = parseFloat((electricResult).toFixed(2));
+  const flightResultToF2 = parseFloat((flightResult).toFixed(2));
+  const fuelResultToF2 = parseFloat((fuelResult).toFixed(2));
+  const gasResultToF2 = parseFloat((gasResult).toFixed(2));
+
   const ctx = document.getElementById('carbonChart').getContext('2d');
   if (window.pieChart) {
       window.pieChart.destroy();
   }
+
+  const chartLabels =
+    isEnglish
+      ? ['Coal', 'Electricity', 'Transport (Air/Plane)', 'Fuel', 'Natural Gas']
+      : ['Kömür', 'Elektrik', 'Ulaşım(Hava/Uçak)', 'Yakıt', 'Doğalgaz'];
+
+  const dataActual = [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2];
+
   window.pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-          labels: ['Kömür', 'Elektrik', 'Ulaşım(Hava/Uçak)', 'Yakıt', 'Doğalgaz'],
+          labels: chartLabels,
           datasets: [{
-              data: [coalResult, electricResult, flightResult, fuelResult, gasResult],
+              data: [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2],
               backgroundColor: [
                 '#3b3b3b',
-                '#a8e100',
+                '#ffdd00',
                 '#a2e3ff',
                 '#903700',
                 '#1500ff',
@@ -91,23 +105,31 @@ function calculate() {
   const turkeyAvg = 4500;
   const unAvg = 7000;
   const annualCF = (globalResult * 12);
+  const annualCFtoF2 = (annualCF).toFixed(2);
   const treesNeeded = Math.ceil((annualCF / 21));
 
   document.getElementById("result").innerHTML =
     isEnglish
-      ? `null`
+      ? `<h3>Total Monthly Carbon Footprint: <strong>${totalCF} kg CO₂</strong></h3>
+        <h4>Annual Estimated Carbon Footprint: <strong>${annualCFtoF2} kg CO₂</strong></h4>`
       : `<h3>Toplam Aylık Karbon Ayak İzi: <strong>${totalCF} kg CO₂</strong></h3>
-        <h4>Yıllık Tahmini Karbon Ayak İzi: <strong>${annualCF} kg CO₂</strong></h4>`;
+        <h4>Yıllık Tahmini Karbon Ayak İzi: <strong>${annualCFtoF2} kg CO₂</strong></h4>`;
       
   document.getElementById("infoBox").innerHTML = 
     isEnglish
-      ? `null`
+      ? `
+          <p><strong>Turkey average:</strong> ${turkeyAvg} kg CO₂/year</p>
+          <p><strong>UN (United Nations) kişi başı ortalaması:</strong> ${unAvg} kg CO₂/year</p>
+          <p><strong>Your average:</strong> ${annualCFtoF2} kg CO₂/year</p>
+          <p><strong>You need to plant approximately:</strong> ${treesNeeded} trees to balance your carbon footprint.</p>
+         <p>${annualCF < turkeyAvg ? "✅ You are below the annual average of Türkiye." : "⚠️ You are above the annual Turkish average."}</p>
+        `
       : `
           <p><strong>Türkiye ortalaması:</strong> ${turkeyAvg} kg CO₂/yıl</p>
-          <p><strong>BM kişi başı ortalaması:</strong> ${unAvg} kg CO₂/yıl</p>
-          <p><strong>Sizin ortalamanız:</strong> ${annualCF} kg CO₂/yıl</p>
+          <p><strong>BM (Birleşmiş Milletler) kişi başı ortalaması:</strong> ${unAvg} kg CO₂/yıl</p>
+          <p><strong>Sizin ortalamanız:</strong> ${annualCFtoF2} kg CO₂/yıl</p>
           <p><strong>Karbon ayak izinizi dengelemek için yaklaşık:</strong> ${treesNeeded} ağaç dikmeniz gerekir.</p>
-         <p>${annualCF < turkeyAvg ? "✅ Türkiye ortalamasının altındasınız." : "⚠️ Türkiye ortalamasının üzerindesiniz."}</p>
+         <p>${annualCF < turkeyAvg ? "✅ Türkiye yıllık ortalamasının altındasınız." : "⚠️ Türkiye yıllık ortalamasının üzerindesiniz."}</p>
         `;
 
   reward(globalResult);

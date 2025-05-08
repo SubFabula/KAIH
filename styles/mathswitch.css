@@ -18,10 +18,10 @@
 
   #switch-math-type-div input {
     border-bottom: 3px solid #999;
-  }
+  }*/
 }
 /* ^ Desktop ^ */
-/*
+
 #switch-math-type-div {
 /*border: @media;*/
   display: flex;
@@ -39,9 +39,9 @@
   background-color: #ddd;
 /*border-bottom: @media;*/
 }
-/*
+
 #switch-math-type-div input.selected {
-  background-color: var(--z-containerColor); /* got from chatgpt too *//*
+  background-color: var(--z-containerColor); /* got from chatgpt too */
   border-bottom: none;
   z-index: var(--z-selected);
   position: relative;
@@ -54,9 +54,6 @@
 #byBill {
   flex-grow: 1;
 }
-
-
-
 
 /*
 #countInputs, #billInputs {

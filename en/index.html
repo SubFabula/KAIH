@@ -13,14 +13,17 @@
     <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resolutions. -->
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/mathswitch.css">
     <link rel="stylesheet" href="styles/simpleui.css">
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
-    <script defer src="scripts/math.js"></script>
-    <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/validation.js"></script>
+    <script defer src="scripts/switchByMathType.js"></script>
+    <script defer src="scripts/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/langSwitch.js"></script>
-    <script defer src="scripts/_localStorage/langPreference.js"></script>
+    <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
   </head>
   <body>
     <div class="simple-ui">
@@ -146,7 +149,12 @@
                   </svg>
                 </div>
               </button>
-              <p id="result"></p>
+              <div class="result" id="result"></div>
+              <div id="chart-container">
+                <canvas id="carbonChart"></canvas>
+                <div class="info-box" id="infoBox"></div>
+              </div>
+              <div id="rewardVideoPreDiv"></div>
             </div> 
           </div>
         </div>

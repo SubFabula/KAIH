@@ -18,13 +18,14 @@ function reward(globalResult) {
     rewardVideo.id = "rewardVideo";
     rewardVideo.controls = true;
 
+    rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
+
+    // initial src set
     if (globalResult <= 1000.00) {
       rewardVideo.src = "assets/videos/rewardgood.mp4";
     } else if (globalResult > 1000.00) {
-      rewardVideo.src = "assets/videos/rewardbad.mp4"; // needs fixing
+      rewardVideo.src = "assets/videos/rewardbad.mp4";
     }
-
-    rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
 
     // Play only after it’s loaded
     rewardVideo.addEventListener("loadeddata", () => {
@@ -37,6 +38,13 @@ function reward(globalResult) {
     rewardVideo.currentTime = 0;
     rewardVideo.play();
     rewardVideo.style.display = "block";
+
+    // after check and change of src
+    if (globalResult <= 1000.00) {
+      rewardVideo.src = "assets/videos/rewardgood.mp4";
+    } else if (globalResult > 1000.00) {
+      rewardVideo.src = "assets/videos/rewardbad.mp4";
+    }
   }
 
   } /*else {

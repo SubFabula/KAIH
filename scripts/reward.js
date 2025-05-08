@@ -1,6 +1,8 @@
 function reward(globalResult) {
+  const rewardVideoPreDiv = document.getElementById("rewardVideoPreDiv")
   if (globalResult <= 1000.00) {
     let rewardVideo = document.getElementById("rewardVideo");
+    rewardVideoPreDiv.style.display = `block`;
 
     // If the video doesn't already exist
     if (!rewardVideo) {

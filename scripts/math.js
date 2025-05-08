@@ -41,6 +41,11 @@ function calculate() {
     fuelResult +
     gasResult;
 
+  const resultDiv = document.getElementById("result")
+  const chartDiv = document.getElementById("chart-container")
+  resultDiv.style.display = `block`;
+  chartDiv.style.display = `flex`;
+
   const ctx = document.getElementById('carbonChart').getContext('2d');
   if (window.pieChart) {
       window.pieChart.destroy();
@@ -82,32 +87,28 @@ function calculate() {
       }
   });
 
+  const totalCF = (globalResult).toFixed(2);
   const turkeyAvg = 4500;
   const unAvg = 7000;
   const annualCF = (globalResult * 12);
   const treesNeeded = Math.ceil((annualCF / 21));
 
-  document.getElementById("result").innerText =
+  document.getElementById("result").innerHTML =
     isEnglish
-      ? `Supposed Carbon Foot Print: ${globalResult.toFixed(2)} kg CO₂/year`
-      : document.getElementById("infoBox").innerHTML = `
+      ? `null`
+      : `<h3>Toplam Aylık Karbon Ayak İzi: <strong>${totalCF} kg CO₂</strong></h3>
+        <h4>Yıllık Tahmini Karbon Ayak İzi: <strong>${annualCF} kg CO₂</strong></h4>`;
+      
+  document.getElementById("infoBox").innerHTML = 
+    isEnglish
+      ? `null`
+      : `
           <p><strong>Türkiye ortalaması:</strong> ${turkeyAvg} kg CO₂/yıl</p>
           <p><strong>BM kişi başı ortalaması:</strong> ${unAvg} kg CO₂/yıl</p>
           <p><strong>Sizin ortalamanız:</strong> ${annualCF} kg CO₂/yıl</p>
           <p><strong>Karbon ayak izinizi dengelemek için yaklaşık:</strong> ${treesNeeded} ağaç dikmeniz gerekir.</p>
-          <p>${annualCF < turkeyAvg ? "✅ Türkiye ortalamasının altındasınız." : "⚠️ Türkiye ortalamasının üzerindesiniz."}</p>
+         <p>${annualCF < turkeyAvg ? "✅ Türkiye ortalamasının altındasınız." : "⚠️ Türkiye ortalamasının üzerindesiniz."}</p>
         `;
-      
-      
-      
-      
-      
-      
-      
-      
-      //`Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
-
-
 
   reward(globalResult);
 }

@@ -244,6 +244,41 @@ div a:focus {
   border-right-color: @media;*/
 }
 
+/* PieChart */ /* bu kodu veren kişiye teşşekkürler */
+#chart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+canvas {
+  max-width: 380px;
+  max-height: 380px;
+}
+
+.info-box {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  border-left: 5px solid #e74c3c;
+}
+
+.info-box p {
+  margin: 10px 0;
+}
+
+.info-box strong {
+  color: #2c3e50;
+}
+
 /* RewardVideo */
 #resultPreview {
   margin: 30px auto;
@@ -255,7 +290,7 @@ div a:focus {
   z-index: -4;
 }
 
-#result {
+#resultNumber {
   margin-top: 20px;
 }
 

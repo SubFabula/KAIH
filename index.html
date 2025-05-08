@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/validation.js"></script>
-    <script defer src="scripts/math.js"></script>
     <script defer src="scripts/switchByMathType.js"></script>
+    <script defer src="scripts/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/langSwitch.js"></script>
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
@@ -33,6 +34,7 @@
         </select>
       </div>
       <h6>bozuk olabilir</h6>
+      <h6>İzEkoStep</h6>
     </div>
     <div class="header">
       <div id="background-wrapper">
@@ -150,6 +152,10 @@
                   </svg>
                 </div>
               </button>
+              <div id="chart-container">
+                <canvas id="carbonChart"></canvas>
+                <div class="info-box" id="infoBox"></div>
+              </div>
               <p id="result"></p>
             </div> 
           </div>

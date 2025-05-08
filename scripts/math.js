@@ -29,17 +29,85 @@ function calculate() {
     ? (flight * flightFactorPerTrip)
     : (flight * flightFactorPerKm);
 
+  const coalResult = coal * coalFactor;
+  const electricResult = electric * electricFactor;
+  const fuelResult = fuel * fuelFactor;
+  const gasResult = gas * gasFactor;
+
   const globalResult =
-    (coal * coalFactor) +
-    (electric * electricFactor) +
+    coalResult +
+    electricResult +
     flightResult +
-    (fuel * fuelFactor) +
-    (gas * gasFactor);
+    fuelResult +
+    gasResult;
+
+  const ctx = document.getElementById('carbonChart').getContext('2d');
+  if (window.pieChart) {
+      window.pieChart.destroy();
+  }
+  window.pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ['Kömür', 'Elektrik', 'Ulaşım(Hava/Uçak)', 'Yakıt', 'Doğalgaz'],
+          datasets: [{
+              data: [coalResult, electricResult, flightResult, fuelResult, gasResult],
+              backgroundColor: [
+                '#3b3b3b',
+                '#a8e100',
+                '#a2e3ff',
+                '#903700',
+                '#1500ff',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  position: 'right',
+              },
+              tooltip: {
+                  callbacks: {
+                      label: function(context) {
+                          const label = context.label || '';
+                          const value = context.raw || 0;
+                          const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                          const percentage = Math.round((value / total) * 100);
+                          return `${label}: ${value} kg CO₂ (${percentage}%)`;
+                      }
+                  }
+              }
+          }
+      }
+  });
+
+  const turkeyAvg = 4500;
+  const unAvg = 7000;
+  const annualCF = (globalResult * 12);
+  const treesNeeded = Math.ceil((annualCF / 21));
 
   document.getElementById("result").innerText =
     isEnglish
       ? `Supposed Carbon Foot Print: ${globalResult.toFixed(2)} kg CO₂/year`
-      : `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
+      : document.getElementById("infoBox").innerHTML = `
+          <p><strong>Türkiye ortalaması:</strong> ${turkeyAvg} kg CO₂/yıl</p>
+          <p><strong>BM kişi başı ortalaması:</strong> ${unAvg} kg CO₂/yıl</p>
+          <p><strong>Sizin ortalamanız:</strong> ${annualCF} kg CO₂/yıl</p>
+          <p><strong>Karbon ayak izinizi dengelemek için yaklaşık:</strong> ${treesNeeded} ağaç dikmeniz gerekir.</p>
+          <p>${annualCF < turkeyAvg ? "✅ Türkiye ortalamasının altındasınız." : "⚠️ Türkiye ortalamasının üzerindesiniz."}</p>
+        `;
+      
+      
+      
+      
+      
+      
+      
+      
+      //`Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
+
+
 
   reward(globalResult);
 }

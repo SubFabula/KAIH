@@ -13,10 +13,19 @@ function reward(globalResult) {
       resultPreviewDiv.appendChild(rewardVideoContainerDiv);
 
       // Only after the first two queries - create and append the video inside the container
-      rewardVideo = document.createElement("video");
-      rewardVideo.id = "rewardVideo";
-      rewardVideo.src = "assets/videos/reward.mp4";
-      rewardVideo.controls = true;
+      
+      if (globalResult <= 1000.00) {
+        rewardVideo = document.createElement("video");
+        rewardVideo.id = "rewardVideo";
+        rewardVideo.src = "assets/videos/rewardgood.mp4";
+        rewardVideo.controls = true;
+      } else {
+        rewardVideo = document.createElement("video");
+        rewardVideo.id = "rewardVideo";
+        rewardVideo.src = "assets/videos/rewardbad.mp4"; // needs fixing
+        rewardVideo.controls = true;
+      }
+      
 
       rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
 

@@ -1,6 +1,6 @@
 /* v Mobile v */
 @media (max-width: 720px) {
-  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill, #switch-math-type-div p {
+  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill, #switch-math-type-div p  {
     display: none;
   }
 }
@@ -8,6 +8,10 @@
 
 /* v Desktop v */
 @media (min-width: 720px) {
+  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill, #switch-math-type-div p  {
+    display: none;
+  }
+/*
   #switch-math-type-div {
     border: 1px solid;
   }
@@ -17,7 +21,7 @@
   }
 }
 /* ^ Desktop ^ */
-
+/*
 #switch-math-type-div {
 /*border: @media;*/
   display: flex;
@@ -35,9 +39,9 @@
   background-color: #ddd;
 /*border-bottom: @media;*/
 }
-
+/*
 #switch-math-type-div input.selected {
-  background-color: var(--z-containerColor); /* got from chatgpt too */
+  background-color: var(--z-containerColor); /* got from chatgpt too *//*
   border-bottom: none;
   z-index: var(--z-selected);
   position: relative;

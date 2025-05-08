@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Ayak İzi Hesaplama</title>
+    <link rel="stylesheet" href="styles/karbon ayak izi hesaplama.html.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/karbon ayak izi hesaplama.html.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Arkas Narlıdere Mesleki Ve Teknik Anadolu Lisesi</h1>
+        <p>Karbon Ayak İzi Hesaplama Projesi</p>
+    </div>
+
+    <div class="container">
+        <h2>Karbon Ayak İzi Hesaplayıcı</h2>
+        <div class="input-group">
+            <label for="electricity">Aylık Elektrik Tüketimi (kWh)</label>
+            <input type="number" id="electricity">
+        </div>
+        <div class="input-group">
+            <label for="naturalGas">Aylık Doğalgaz Tüketimi (m³)</label>
+            <input type="number" id="naturalGas">
+        </div>
+        <div class="input-group">
+            <label for="water">Aylık Su Tüketimi (m³)</label>
+            <input type="number" id="water">
+        </div>
+        <div class="input-group">
+            <label for="transport">Aylık Ulaşılan Mesafe (km)</label>
+            <input type="number" id="transport">
+        </div>
+        <button onclick="calculateCarbonFootprint()">HESAPLA</button>
+
+        <div class="result" id="result"></div>
+
+        <div id="chart-container">
+            <canvas id="carbonChart"></canvas>
+            <div class="info-box" id="infoBox"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,24 +4,24 @@
     <base href=""> <!-- <base href="/KAIH/"> -->
     <link rel="alternate" hreflang="tr" href="https://subfabula.github.io/KAIH/">
     <link rel="alternate" hreflang="en" href="https://subfabula.github.io/KAIH/en/">
-    <title>Karbon Ayak İzi Hesaplayıcı | İzEkoStep</title>
+    <title>Karbon Ayak İzi Hesaplayıcı | İzEcoStep</title>
     <meta name="author" content="SubFabula/M. Emir Filiz">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Karbon ayak izinizi kolayca öğrenmeniz için bir hesaplama aracı! Aylık tüketiminize göre hesaplama yapın ve çevreye katkı sağlayın. Hemen hesaplamaya başlayabilirsiniz.">
-    <meta name="keywords" content="KAIH, K.A.I.H., KAİH, K.A.İ.H., Kaıh, K.a.ı.h., Kaih, K.a.i.h., Karbon Ayak İzi, Karbon, Hesapla, Ayak, İzi, Hesaplama, Hesaplayıcı, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı">
+    <meta name="keywords" content="KAIH, K.A.I.H., KAİH, K.A.İ.H., Kaıh, K.a.ı.h., Kaih, K.a.i.h., Karbon Ayak İzi, Karbon, Hesapla, Ayak, İzi, Hesaplama, Hesaplayıcı, Karbon Ayak İzi Hesaplama, Karbon Ayak İzi Hesaplayıcı, İzmir, Eco, Step, İz, İzEcoStep">
     <meta name="theme-color" content="#008000">
     <link rel=icon href=assets/favicons/favicon.ico type="image/x-icon"> <!-- The https://www.icoconverter.com/index.php can make an .ico file store multiple resolutions. -->
     <!-- some SEO stuff - Open Graph Tags -->
     <link rel="canonical" href="https://subfabula.github.io/KAIH/">
-    <meta property="og:title" content="Karbon Ayak İzi Hesaplayıcı | İzEkoStep">
+    <meta property="og:title" content="Karbon Ayak İzi Hesaplayıcı | İzEcoStep">
     <meta property="og:description" content="Aylık tüketiminize göre karbon ayak izinizi hesaplayın. Çevreye katkıda bulunun.">
-    <meta property="og:image" content="https://subfabula.github.io/KAIH/assets/header-background.jpg">
+    <meta property="og:image" content="https://subfabula.github.io/KAIH/assets/İzEcoStep.jpeg">
     <meta property="og:url" content="https://subfabula.github.io/KAIH/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Karbon Ayak İzi Hesaplayıcı | İzEkoStep">
+    <meta name="twitter:title" content="Karbon Ayak İzi Hesaplayıcı | İzEcoStep">
     <meta name="twitter:description" content="Aylık tüketiminize göre karbon ayak izinizi hesaplayın. Çevreye katkıda bulunun.">
-    <meta name="twitter:image" content="https://subfabula.github.io/KAIH/assets/header-background.jpg">
+    <meta name="twitter:image" content="https://subfabula.github.io/KAIH/assets/İzEcoStep.jpeg">
     <meta property="og:type" content="website">
     <script type="application/ld+json">
     {
@@ -42,7 +42,7 @@
           "url": "https://github.com/SubFabula"
         },
         "browserRequirements": "Requires JavaScript",
-        "screenshot": "https://subfabula.github.io/KAIH/assets/header-background.jpg"
+        "screenshot": "https://subfabula.github.io/KAIH/assets/İzEcoStep.jpeg"
       },
       {
         "@type": "WebSite",
@@ -87,7 +87,8 @@
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/mathswitch.css">
-    <link rel="stylesheet" href="styles/simpleui.css">
+    <link rel="stylesheet" href="styles/sidebar.css"> <!-- work in progress -->
+    <link rel="stylesheet" href="styles/simpleui.css"> <!-- will be removed to keep using the sidebar.css as a whole-->
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/validation.js"></script>
@@ -99,15 +100,46 @@
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
   </head>
   <body>
-    <div class="simple-ui">
+    <div class="sidebar"> <!-- don't use for mobile for now -> work in progress -->
+      <div id="sidebar-button">
+        <img id="menu-button" src="assets/icons/menu.svg"> <!-- when closed its menu.svg, when open its menu-close.svg -->
+      </div>
       <div id="lang-selectDiv">
-        <select name="" id="lang-select">
+        <select id="lang-select">
+          <option value="option-tr">Türkçe</option>
+          <option value="option-en">English</option>
+        </select>
+      </div>
+      <!-- future addition to above this comment-->
+      <div id="contacts">
+        <div id="contact-info">
+          <div id="info-header">
+            <img id="info-icon" src="assets/icons/info.svg">
+            <h3>Bize Ulaşın</h3>
+          </div>
+          <div id="line-div">
+            <div class="info-line">
+              <img class="icons" src="assets/icons/call.svg"><p>0123456789</p>
+            </div>
+            <div class="info-line">
+              <img class="icons" src="assets/icons/mail.svg"><p>placeholder@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div id="logo-div">
+          <img src="assets\icons\İzEcoStep.jpeg">
+        </div>
+      </div>
+    </div>
+    <div class="simple-ui"> <!-- use for mobile for now ^work in progress^ -->
+      <div id="lang-selectDiv">
+        <select id="lang-select">
           <option value="option-tr">Türkçe</option>
           <option value="option-en">English</option>
         </select>
       </div>
       <h6>bozuk olabilir</h6>
-      <h6>İzEkoStep</h6>
+      <h6>İzEcoStep</h6>
     </div>
     <div class="header">
       <div id="background-wrapper">

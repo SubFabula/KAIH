@@ -294,7 +294,9 @@ canvas {
 
 .info-box {
   flex: 1;
-  min-width: 300px;
+  flex-wrap: wrap;
+  min-width: 200px;
+  margin-top: inherit;
   padding: 20px;
   background: #f9faf8;
   border-radius: 8px;

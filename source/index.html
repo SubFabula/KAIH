@@ -15,17 +15,15 @@
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/sidebar.css">
-    <link rel="stylesheet" href="styles/simpleui.css"> <!-- will be removed to keep using the sidebar.css as a whole-->
     <!-- Import JavaScript -->
-    <script defer src="scripts/sidebar.js"></script> <!-- work in progress -->
+    <script defer src="scripts/sidebar.js"></script>
     <script defer src="scripts/langSwitch.js"></script>
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
   </head>
   <body>
-    <div class="sidebar closed" id="sidebar" > <!-- don't use for mobile for now -> work in progress -->
+    <div class="sidebar closed" id="sidebar" > <!-- sidebar closed is the default and will change to sidebar open when clicked on -->
       <div id="sidebar-button">
-        <button id="sidebarRealButton"><img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg"></button>
-         <!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon -->
+        <button id="sidebarRealButton"><img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg"><!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon --></button>
       </div>
       <div id="rest-of-the-content">
         <div id="lang-selectDiv">
@@ -55,16 +53,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="simple-ui"> <!-- use for mobile for now ^work in progress^ -->
-      <div id="lang-selectDiv">
-        <select id="lang-select">
-          <option value="option-tr">Türkçe</option>
-          <option value="option-en">English</option>
-        </select>
-      </div>
-      <h6>bozuk olabilir</h6>
-      <h6>İzEcoStep</h6>
     </div>
     <div class="header">
       <!-- #background-wrapper is below the parent (.header) -->

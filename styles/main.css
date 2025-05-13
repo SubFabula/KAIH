@@ -123,6 +123,7 @@ body {
   background-color: #c9ffba4c;
   overflow-y: var(--z-scrollY);
   overflow-x: var(--z-scrollX);
+  z-index: var(--z-body);
 }
 
 .container {
@@ -154,13 +155,6 @@ body {
   z-index: var(--z-header);
 }
 
-.header img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 #background-wrapper {
   position: fixed;
   top: 0;
@@ -169,6 +163,13 @@ body {
   z-index: var(--z-backgroundImg);
   pointer-events: none;
   overflow: hidden;
+}
+
+#background-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 #img-foreground {
@@ -187,6 +188,7 @@ body {
   transform: translate(-50%, -50%);
   white-space: nowrap;
   margin: 0;
+  z-index: var(--z-header-text);
 }
 
 /* Content */

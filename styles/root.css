@@ -1,15 +1,19 @@
 :root {
+  --z-body: -6;
+
   /* main.css */
   --z-scrollY: auto; /* body */
   --z-scrollX: hidden; /* body */
-  --z-header: -3; /* .header */
+  --z-header: 0; /* .header */
+  --z-header-text: 2;
   --z-container: -2; /* .container */
   --z-containerColor: #d7fed6; /* .container and #switch-math-type-div input.selected in mathswitch.css*/
-  --z-a: 6;
-
-  /* simpleui.css */
-  --z-ui: 5; /* .simple-ui */
   --z-backgroundImg: -5; /* #background-wrapper */
+  --z-a: 10; /* .content */
+
+  /* simpleui.css */ /* .sidebar */
+  --z-ui: 5; /* .simple-ui */ /* .sidebar */
+  --z-uiButtonReal: 6; /* #sidebarRealButton */
 
   /* mathswitch.css*/
   --z-selected: 1; /* #switch-math-type-div input.selected */

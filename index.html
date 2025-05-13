@@ -103,7 +103,8 @@
   <body>
     <div class="sidebar"> <!-- don't use for mobile for now -> work in progress -->
       <div id="sidebar-button">
-        <img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg" onclick="sidebarOpenClose()"> <!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon -->
+        <button id="sidebarRealButton"><img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg"></button>
+         <!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon -->
       </div>
       <div id="rest-of-the-content">
         <div id="lang-selectDiv">
@@ -145,14 +146,15 @@
       <h6>İzEcoStep</h6>
     </div>
     <div class="header">
-      <div id="background-wrapper">
-        <img id="img-foreground" src="assets/header-background.jpg" alt="Orman temalı arkaplan">
-      </div>
+      <!-- #background-wrapper is below the parent (.header) -->
       <div class="header-text">
         <h1>Karbon Ayak İzi Hesaplayıcı</h1>
         <h3><i>"Yeşil bir dünya için..."</i></h3>
       </div>
     </div>
+    <div id="background-wrapper"> <!-- child of the .header -->
+        <img id="img-foreground" src="assets/header-background.jpg" alt="Orman temalı arkaplan">
+      </div>
     <div class="content">
       <div class="container-background">
         <div class="container">

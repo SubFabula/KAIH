@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://subfabula.github.io/KAIH/assets/İzEcoStep.jpeg">
     <meta property="og:url" content="https://subfabula.github.io/KAIH/en/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Carbon Footprint Calculator | İzEkoStep">
+    <meta name="twitter:title" content="Carbon Footprint Calculator | İzEcoStep">
     <meta name="twitter:description" content="Calculate your carbon footprint based on your monthly consumption. Contribute to the environment.">
     <meta name="twitter:image" content="https://subfabula.github.io/KAIH/assets/İzEcoStep.jpeg">
     <meta property="og:type" content="website">
@@ -86,11 +86,13 @@
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/mathswitch.css">
-    <link rel="stylesheet" href="styles/simpleui.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/simpleui.css"> <!-- will be removed to keep using the sidebar.css as a whole-->
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/validation.js"></script>
     <script defer src="scripts/switchByMathType.js"></script>
+    <script defer src="scripts/sidebar.js"></script> <!-- work in progress -->
     <script defer src="scripts/math.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="scripts/reward.js"></script>
@@ -98,28 +100,60 @@
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
   </head>
   <body>
-    <div class="simple-ui">
+    <div class="sidebar closed" id="sidebar" > <!-- don't use for mobile for now -> work in progress -->
+      <div id="sidebar-button">
+        <button id="sidebarRealButton"><img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg"></button>
+         <!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon -->
+      </div>
+      <div id="rest-of-the-content">
+        <div id="lang-selectDiv">
+          <select id="lang-select">
+            <option value="option-en">English</option>
+            <option value="option-tr">Türkçe</option>
+          </select>
+        </div>
+        <!-- future addition to above this comment-->
+        <div id="contacts">
+          <div id="contact-info">
+            <div id="info-header">
+              <img id="info-icon" src="assets/icons/info.svg">
+              <h3>Contact Us</h3>
+            </div>
+            <div id="line-div">
+              <div class="info-line">
+                <img class="icons" src="assets/icons/call.svg"><p>0123456789</p>
+              </div>
+              <div class="info-line">
+                <img class="icons" src="assets/icons/mail.svg"><p>placeholder@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div id="logo-div">
+            <img src="assets\icons\İzEcoStep.jpeg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="simple-ui"> <!-- use for mobile for now ^work in progress^ -->
       <div id="lang-selectDiv">
-        <select name="" id="lang-select">
+        <select id="lang-select">
           <option value="option-en">English</option>
           <option value="option-tr">Türkçe</option>
         </select>
       </div>
-      <h6>might be broken</h6>
-    </div>
-    <div id="splash-text">
-      <h6>May be broken</h6>
+      <h6>may be broken</h6>
+      <h6>İzEcoStep</h6>
     </div>
     <div class="header">
-      
+      <!-- #background-wrapper is below the parent (.header) -->
       <div class="header-text">
-        <h1>Carbon Foot Print Calculator</h1>
+        <h1>Carbon Footprint Calculator</h1>
         <h3><i>"For a green world..."</i></h3>
       </div>
     </div>
-    <div id="background-wrapper">
+    <div id="background-wrapper"> <!-- child of the .header -->
         <img id="img-foreground" src="assets/header-background.jpg" alt="Forest themed background">
-      </div>
+    </div>
     <div class="content">
       <div class="container-background">
         <div class="container">

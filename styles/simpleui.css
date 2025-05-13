@@ -19,14 +19,14 @@
   border-radius: 0px 0px 100px 0px;
 }
 
-#lang-selectDiv {
+.simple-ui #lang-selectDiv {
   top: inherit;
   right: inherit;
   margin-left: -10px;
   margin-top: -20px;
 }
 
-#lang-select {
+.simple-ui #lang-select {
   border-radius: 100px;
   padding: 10px;
 }

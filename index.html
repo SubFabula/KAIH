@@ -87,12 +87,13 @@
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/mathswitch.css">
-    <link rel="stylesheet" href="styles/sidebar.css"> <!-- work in progress -->
+    <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/simpleui.css"> <!-- will be removed to keep using the sidebar.css as a whole-->
     <link rel="stylesheet" href="styles/plantBasedButton.css">
     <!-- Import JavaScript -->
     <script defer src="scripts/validation.js"></script>
     <script defer src="scripts/switchByMathType.js"></script>
+    <script defer src="scripts/sidebar.js"></script> <!-- work in progress -->
     <script defer src="scripts/math.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="scripts/reward.js"></script>
@@ -102,32 +103,34 @@
   <body>
     <div class="sidebar"> <!-- don't use for mobile for now -> work in progress -->
       <div id="sidebar-button">
-        <img id="menu-button" src="assets/icons/menu.svg"> <!-- when closed its menu.svg, when open its menu-close.svg -->
+        <img class="sidebar-buttonCLASS" id="menu-button" src="assets/icons/menu.svg" onclick="sidebarOpenClose()"> <!-- when closed its menu.svg and the id is menu-button (the default), when open its menu-close.svg and the id is back-icon -->
       </div>
-      <div id="lang-selectDiv">
-        <select id="lang-select">
-          <option value="option-tr">Türkçe</option>
-          <option value="option-en">English</option>
-        </select>
-      </div>
-      <!-- future addition to above this comment-->
-      <div id="contacts">
-        <div id="contact-info">
-          <div id="info-header">
-            <img id="info-icon" src="assets/icons/info.svg">
-            <h3>Bize Ulaşın</h3>
-          </div>
-          <div id="line-div">
-            <div class="info-line">
-              <img class="icons" src="assets/icons/call.svg"><p>0123456789</p>
-            </div>
-            <div class="info-line">
-              <img class="icons" src="assets/icons/mail.svg"><p>placeholder@gmail.com</p>
-            </div>
-          </div>
+      <div id="rest-of-the-content">
+        <div id="lang-selectDiv">
+          <select id="lang-select">
+           <option value="option-tr">Türkçe</option>
+           <option value="option-en">English</option>
+          </select>
         </div>
-        <div id="logo-div">
-          <img src="assets\icons\İzEcoStep.jpeg">
+        <!-- future addition to above this comment-->
+        <div id="contacts">
+          <div id="contact-info">
+            <div id="info-header">
+              <img id="info-icon" src="assets/icons/info.svg">
+              <h3>Bize Ulaşın</h3>
+            </div>
+            <div id="line-div">
+              <div class="info-line">
+                <img class="icons" src="assets/icons/call.svg"><p>0123456789</p>
+              </div>
+              <div class="info-line">
+                <img class="icons" src="assets/icons/mail.svg"><p>placeholder@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div id="logo-div">
+            <img src="assets\icons\İzEcoStep.jpeg">
+          </div>
         </div>
       </div>
     </div>

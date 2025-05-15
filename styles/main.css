@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Mobile */
 @media (max-width: 720px) {
   .header {
@@ -121,9 +122,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #c9ffba4c;
+  scroll-behavior: smooth;
   overflow-y: var(--z-scrollY);
   overflow-x: var(--z-scrollX);
   z-index: var(--z-body);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .container {

@@ -1,15 +1,30 @@
-/* v Mobile v */ /* didn't need @media stuff surprisingly, at least from a non-mobile test
+@charset "UTF-8";
+/* v Mobile v */ /* "didn't need @media stuff surprisingly, at least from a non-mobile test" Oh yeah, we definitely didn't-*/
 @media (max-width: 800px) {
-  .simple-ui {
-    display: none;
+  .sidebar.open {
+    width: 45%;
+    height: 100%;
+  }
+
+  .sidebar.closed {
+    width: 15%;
+    height: 60px;
+    aspect-ratio: 1/1;
   }
 }
 /* ^ Mobile ^ */
 
-/* v Desktop v *//*
+/* v Desktop v */
 @media (min-width: 800px) {
-  .simple-ui {
-    display: none;
+  .sidebar.open {
+    width: 200px;
+    height: 100%;
+}
+
+  .sidebar.closed {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1/1;
   }
 }
 /* ^ Desktop ^ */
@@ -25,21 +40,25 @@
   align-items: center;
   align-content: flex-start;
   flex-direction: column;
-  transition: all 0.4s ease-in-out;
+  -webkit-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+     -moz-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+       -o-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+      -ms-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
   z-index: var(--z-ui);
 }
 
 .sidebar.open {
-  width: 200px;
-  height: 100%;
+/*width: @media;
+  height: @media;*/
   padding: 20px 20px 10px 20px;
   background-color: #8ae0b4;
   border-radius: 0;
 }
 
 .sidebar.closed {
-  width: 60px;
-  height: 60px;
+/*width: @media;
+  height: @media;*/
   padding: 20px;
   background-color: #4e8b6c;
   border-radius: 0 0 50% 0;

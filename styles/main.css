@@ -274,8 +274,9 @@ div a:focus {
 
 .result { /* bu kodu veren kişiye teşşekkürler */
   margin-top: 25px;
+  scroll-margin-top: 10px;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 8px;
   border-left: 5px solid #3498db;

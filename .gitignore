@@ -3,8 +3,8 @@
 *.test_.*
 
 # Folders
-.gitignoredFolder
-.gitignoredVlog
+*.gitignoredFolder
+*.gitignoredVlog
 *.vscode
 
 # Extensions

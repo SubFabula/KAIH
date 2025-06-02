@@ -1,15 +1,21 @@
 @charset "UTF-8";
-/* v Mobile v */ /* "didn't need @media stuff surprisingly, at least from a non-mobile test" Oh yeah, we definitely didn't-*/
+/* v Mobile v */
 @media (max-width: 800px) {
   .sidebar.open {
-    width: 45%;
+    width: 200px;
     height: 100%;
   }
 
   .sidebar.closed {
-    width: 15%;
+    width: 60px;
     height: 60px;
     aspect-ratio: 1/1;
+  }
+}
+
+@media (max-height: 750px) {
+  .header {
+    margin-top: 10vmin;
   }
 }
 /* ^ Mobile ^ */
@@ -34,9 +40,12 @@
   left: 0;
   margin: 0;
   position: fixed;
-  overflow: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   align-content: flex-start;
   flex-direction: column;
@@ -48,9 +57,23 @@
   z-index: var(--z-ui);
 }
 
+
+#sidebar::-webkit-scrollbar { /* Chrome, Safari, Edge Chromium */
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+#sidebar::-ms-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
 .sidebar.open {
 /*width: @media;
   height: @media;*/
+  overflow-y: scroll;
   padding: 20px 20px 10px 20px;
   background-color: #8ae0b4;
   border-radius: 0;
@@ -59,6 +82,7 @@
 .sidebar.closed {
 /*width: @media;
   height: @media;*/
+  overflow-y: hidden;
   padding: 20px;
   background-color: #4e8b6c;
   border-radius: 0 0 50% 0;
@@ -66,18 +90,40 @@
 
 .sidebar.closed #rest-of-the-content div {
   display: none;
+  overflow: hidden;
 }
 
 .sidebar.open #rest-of-the-content {
   display: flex;
 }
 
+#rest-of-the-content {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+/* Chrome, Safari, Edge Chromium */
+#rest-of-the-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+#rest-of-the-content::-ms-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+
 #sidebar-button {
   width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #sidebarRealButton {
-  position: fixed;
+  position: absolute; /* <- better than fixed inside a fixed sidebar */
   display: flex;
   border: 0;
   background-color: transparent;
@@ -87,27 +133,29 @@
 #sidebar-button {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row-reverse;
-  margin-bottom: auto;
+  flex-shrink: 0; /* Don't shrink */
+  margin-bottom: 20px;
 }
 
 #sidebar #rest-of-the-content {
   margin: 40px 0 0 0;
+  flex: 1;
+  overflow-y: auto; /* Scroll only this */
   padding: inherit;
-  width: inherit;
-  position: inherit;
-  height: inherit;
-  overflow: inherit;
-  display: inherit;
-  flex-wrap: inherit;
-  align-items: inherit;
-  align-content: inherit;
-  flex-direction: inherit;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
 }
+
 
 #sidebar #lang-selectDiv {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 #sidebar #lang-select {
@@ -119,7 +167,7 @@
 #contacts {
   bottom: 0;
   margin: 20px;
-  position: inherit;
+  margin-top: auto;
 }
 
 #contacts #contact-info {

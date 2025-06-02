@@ -54,7 +54,7 @@ function calculate() {
 
   const ctx = document.getElementById('carbonChart').getContext('2d');
   if (window.pieChart) {
-      window.pieChart.destroy();
+    window.pieChart.destroy();
   }
 
   const chartLabels =
@@ -65,40 +65,47 @@ function calculate() {
   const dataActual = [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2];
 
   window.pieChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-          labels: chartLabels,
-          datasets: [{
-              data: [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2],
-              backgroundColor: [
-                '#3b3b3b',
-                '#ffdd00',
-                '#a2e3ff',
-                '#903700',
-                '#1500ff',
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          plugins: {
-              legend: {
-                  position: 'right',
-              },
-              tooltip: {
-                  callbacks: {
-                      label: function(context) {
-                          const label = context.label || '';
-                          const value = context.raw || 0;
-                          const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                          const percentage = Math.round((value / total) * 100);
-                          return `${label}: ${value} kg CO₂ (${percentage}%)`;
-                      }
-                  }
-              }
+    type: 'pie',
+    data: {
+      labels: chartLabels,
+      datasets: [{
+        data: [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2],
+          backgroundColor: [
+            '#3b3b3b',
+            '#ffdd00',
+            '#a2e3ff',
+            '#903700',
+            '#1500ff',
+          ],
+          borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: {
+            color: '#000',
+            font: {
+              size: '14',
+              weight: 'bold',
+            }
           }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const value = context.raw || 0;
+              const total = context.dataset.data.reduce((a, b) => a + b, 0);
+              const percentage = Math.round((value / total) * 100);
+              return `${label}: ${value} kg CO₂ (${percentage}%)`;
+            }
+          }
+        }
       }
+    }
   });
 
   const totalCF = (globalResult).toFixed(2);
@@ -133,6 +140,10 @@ function calculate() {
         `;
 
   reward(globalResult);
+
+  document.getElementById("resultPreview").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
 /*

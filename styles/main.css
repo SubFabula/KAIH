@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /* Mobile */
-@media (max-width: 720px) {
+@media (max-width: 719px) {
   .header {
     height: 30vh;
   }
 
   .header .header-text {
-    font-size: 3vw;
+    font-size: clamp(1rem, 3vw, 2rem);
   }
 
   #background-wrapper, #img-foreground {
@@ -24,18 +24,13 @@
     padding-right: 10px;
     width: 98%;
     border-radius: 15px 15px 0px 0px;
-    border-top-color: black;
+    border: 2px solid black;
     border-bottom-color: gray;
-    border-left-color: black;
-    border-right-color: black;
   }
 
   #numberInput .no-selectInput input {
     border-radius: 15px 15px 15px 15px;
-    border-top-color: black;
-    border-bottom-color: black;
-    border-left-color: black;
-    border-right-color: black;
+    border: 2px solid black;
   }
   
   #numberInput select {
@@ -43,10 +38,8 @@
     padding-right: 20px;
     width: 98%;
     border-radius: 0px 0px 15px 15px;
+    border: 2px solid black;
     border-top-color: gray;
-    border-bottom-color: black;
-    border-left-color: black;
-    border-right-color: black;
   }
 
   #resultPreview {
@@ -80,19 +73,14 @@
     padding-right: 10px;
     width: 65%;
     border-radius: 15px 0px 0px 15px;
-    border-top-color: black;
-    border-bottom-color: black;
-    border-left-color: black;
+    border: 2px solid black;
     border-right-color: gray;
   }
 
   #numberInput .no-selectInput input {
     width: 85%;
     border-radius: 15px 15px 15px 15px;
-    border-top-color: black;
-    border-bottom-color: black;
-    border-left-color: black;
-    border-right-color: black;
+    border: 2px solid black;
   }
   
   #numberInput select {
@@ -100,10 +88,8 @@
     padding-right: 20px;
     width: 20%;
     border-radius: 0px 15px 15px 0px;
-    border-top-color: black;
-    border-bottom-color: black;
+    border: 2px solid black;
     border-left-color: gray;
-    border-right-color: black;
   }
 
   #resultPreview {
@@ -323,14 +309,11 @@ canvas {
 /* RewardVideo */
 #rewardVideo {
   margin-top: 20px;
-  display: hidden;
+  display: none;
+  height: 100%;
 }
 
 #rewardVideoContainer {
   display: flex;
   justify-content: center;
-}
-
-#rewardVideo {
-  height: 100%;
 }

@@ -141,7 +141,7 @@ function calculate() {
 
   reward(globalResult);
 
-  document.getElementById("resultPreview").scrollIntoView({
+  document.getElementById("result").scrollIntoView({
     behavior: "smooth"
   });
 }

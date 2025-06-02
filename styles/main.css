@@ -1,13 +1,20 @@
 @charset "UTF-8";
 /* Mobile */
+@media (max-width: 480px) {
+  .header .header-text {
+    font-size: 0.7rem;
+  }
+}
+
 @media (max-width: 719px) {
   .header {
     height: 30vh;
   }
 
   .header .header-text {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(0.7rem, 1.8vw, 1.5rem);
   }
+
 
   #background-wrapper, #img-foreground {
     height: 1000px;
@@ -104,6 +111,10 @@
 
 
 /* Body */
+html {
+  overflow-x: var(--z-scrollX);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -271,6 +282,7 @@ div a:focus {
 
 /* PieChart */ /* bu kodu veren kişiye teşşekkürler */
 #chart-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -278,11 +290,13 @@ div a:focus {
   margin-top: 25px;
   flex-wrap: wrap;
   display: none;
+  overflow: visible;
 }
 
 canvas {
-  max-width: 380px;
-  max-height: 190px;
+  flex-wrap: wrap;
+  max-width: 400px;
+  max-height: 200px;
 }
 
 .info-box {

@@ -59,8 +59,8 @@ function calculate() {
 
   const chartLabels =
     isEnglish
-      ? ['Coal', 'Electricity', 'Transport (Air/Plane)', 'Fuel', 'Natural Gas']
-      : ['Kömür', 'Elektrik', 'Ulaşım(Hava/Uçak)', 'Yakıt', 'Doğalgaz'];
+      ? ['Coal', 'Electricity', ['Transport', '(Air/', 'Plane)'], 'Fuel', 'Natural Gas']
+      : ['Kömür', 'Elektrik', ['Ulaşım', '(Hava/', 'Uçak)'], 'Yakıt', 'Doğalgaz'];
 
   const dataActual = [coalResultToF2, electricResultToF2, flightResultToF2, fuelResultToF2, gasResultToF2];
 
@@ -82,6 +82,12 @@ function calculate() {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          right: 30
+        }
+      },
       plugins: {
         legend: {
           position: 'right',

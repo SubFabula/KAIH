@@ -23,5 +23,8 @@
 
   /* mathswitch.css*/
   --z-SMTD: 10; /* #switch-math-type-div */
+  --z-SMTD-before: -1;
   --z-selected: 2; /* #switch-math-type-div input.selected */
+  --z-non-selectedColor: #dddddd;
+  --z-non-selectedBorderColor: #cccccc;
 }

@@ -17,20 +17,25 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  border-radius: 10px;
-  background-color: #dddddd;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--z-calculationContainerColor);
   z-index: var(--z-SMTD);
   position: relative;
-  border-top: 2px solid #cccccc;
 }
 
 #switch-math-type-div input {
-  border: 2px solid #cccccc;
+  border: 2px solid var(--z-non-selectedBorderColor);
   padding: 8px 16px;
   cursor: pointer;
   flex-grow: 1;
-  transition: all 0.2s ease;
-  background-color: #dddddd;
+  transition: background-color    0.4s ease-in-out,
+              position            0.4s ease-in-out,
+              transform           0.4s ease-in-out,
+              margin-bottom       0.4s ease-in-out,
+              padding-bottom      0.4s ease-in-out,
+              border-bottom-color 0.4s ease-out,
+              border-radius       0.4s ease-in-out;
+  background-color: var(--z-non-selectedColor);
 }
 
 #switch-math-type-div input.selected {
@@ -40,7 +45,10 @@
   border-radius: 10px 10px 0 0;
   z-index: var(--z-selected);
 
-  clip-path: inset(2px 0 0);
+  position: relative;
+  transform: translateY(-10px);
+  margin-bottom: -10px;
+  padding-bottom: 18px;
 }
 
 #switch-math-type-div input.not-selected {

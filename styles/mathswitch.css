@@ -1,66 +1,58 @@
 @charset "UTF-8";
 /* v Mobile v */
 @media (max-width: 720px) {
-  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill, #switch-math-type-div p  {
-    display: none;
-  }
+
 }
 /* ^ Mobile ^ */
 
 /* v Desktop v */
 @media (min-width: 720px) {
-  #switch-math-type-div, #switch-math-type-div input, #byCount, #byBill, #switch-math-type-div p  {
-    display: none;
-  }
-/*
-  #switch-math-type-div {
-    border: 1px solid;
-  }
 
-  #switch-math-type-div input {
-    border-bottom: 3px solid #999;
-  }*/
 }
 /* ^ Desktop ^ */
 
 #switch-math-type-div {
-/*border: @media;*/
   display: flex;
   flex-grow: initial;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  border-radius: 10px;
+  background-color: #dddddd;
+  z-index: var(--z-SMTD);
+  position: relative;
+  border-top: 2px solid #cccccc;
 }
 
 #switch-math-type-div input {
-  border: 1px solid #ccc; /* got from chatgpt too */
+  border: 2px solid #cccccc;
   padding: 8px 16px;
   cursor: pointer;
+  flex-grow: 1;
   transition: all 0.2s ease;
-  background-color: #ddd;
-/*border-bottom: @media;*/
+  background-color: #dddddd;
 }
 
 #switch-math-type-div input.selected {
-  background-color: var(--z-containerColor); /* got from chatgpt too */
+  background-color: var(--z-calculationContainerColor);
+  border: 2px solid var(--z-calculationContainerBorderColor);
   border-bottom: none;
+  border-radius: 10px 10px 0 0;
   z-index: var(--z-selected);
-  position: relative;
+
+  clip-path: inset(2px 0 0);
 }
 
-#byCount {
-  flex-grow: 1;
+#switch-math-type-div input.not-selected {
+  border-bottom: 2px solid var(--z-calculationContainerBorderColor);
 }
 
-#byBill {
-  flex-grow: 1;
+#switch-math-type-div input.leftside.not-selected {
+  border-right: none;
+  border-radius: 10px 0 0 0;
 }
 
-/*
-#countInputs, #billInputs {
-  background-color: #fff;
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-top: none;
+#switch-math-type-div input.rightside.not-selected {
+  border-left: none;
+  border-radius: 0 10px 0 0;
 }
-*/

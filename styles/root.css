@@ -9,13 +9,19 @@
   --z-header-text: 2;
   --z-container: -2; /* .container */
   --z-containerColor: #d7fed6; /* .container and #switch-math-type-div input.selected in mathswitch.css*/
+  --z-calculationContainer: 1; /* #calculationContainer */
+  --z-calculationContainerBorder: 1; /* #calculationContainerBorderLeft and #calculationContainerBorderRight */
+  --z-calculationContainerColor: #94fa92; /* #calculationContainer and #switch-math-type-div *ANY* */
+  --z-calculationContainerBorderColor: #55b053; /* #calculationContainer and #switch-math-type-div *ANY* */
   --z-backgroundImg: -5; /* #background-wrapper */
   --z-a: 10; /* .content */
+  --z-resultPreview: 2;
 
   /* simpleui.css */ /* .sidebar */
   --z-ui: 5; /* .simple-ui */ /* .sidebar */
   --z-uiButtonReal: 6; /* #sidebarRealButton */
 
   /* mathswitch.css*/
-  --z-selected: 1; /* #switch-math-type-div input.selected */
+  --z-SMTD: 10; /* #switch-math-type-div */
+  --z-selected: 2; /* #switch-math-type-div input.selected */
 }

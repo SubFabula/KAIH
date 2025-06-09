@@ -69,23 +69,46 @@
   .header .header-text {
     font-size: 2vw; 
   }
+  
+  #numberInput {
+    flex-direction: column;
+  }
+
+  #numberInput .inputPair {
+    display: flex;
+    width: 100%;
+    gap: 3px;
+  }
+
+  #numberInput .inputPair input {
+    flex: 2 1 0;
+    min-width: 0;
+  }
+
+  #numberInput .inputPair select {
+    flex: 1 0 0;
+  }
+
+  #numberInput .inputPair input,
+  #numberInput .inputPair select {
+    width: auto !important;
+  }
 
   #numberInput input, #numberInput select {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  
+
   #numberInput input {
     padding-left: 12px;
     padding-right: 10px;
-    width: 65%;
     border-radius: 15px 0px 0px 15px;
     border: 2px solid black;
     border-right-color: gray;
   }
 
   #numberInput .no-selectInput input {
-    width: 85%;
+    width: 100%;
     border-radius: 15px 15px 15px 15px;
     border: 2px solid black;
   }
@@ -93,10 +116,13 @@
   #numberInput select {
     padding-left: 12px;
     padding-right: 20px;
-    width: 20%;
     border-radius: 0px 15px 15px 0px;
     border: 2px solid black;
     border-left-color: gray;
+  }
+
+  .pSelect {
+    margin: 0;
   }
 
   #resultPreview {
@@ -224,7 +250,56 @@ div a:focus {
   margin-top: auto;
 }
 
+/* CalculationContainer */
+#calculationContainer {
+  background-color: var(--z-calculationContainerColor);
+  border-radius: 10px;
+  position: relative;
+  background: var(--z-calculationContainerColor);
+}
+
+#calculationContainerBorderLeft {
+  border-left: 2px solid ;
+  position: absolute;
+  top: 5%;
+  bottom: 10%;
+  left: 0;
+  color: var(--z-calculationContainerBorderColor);
+  z-index: var(--z-calculationContainerBorder);
+}
+
+#calculationContainerBorderRight {
+  border-left: 2px solid ;
+  position: absolute;
+  top: 5%;
+  bottom: 10%;
+  right: 0;
+  color: var(--z-calculationContainerBorderColor);
+  z-index: var(--z-calculationContainerBorder);
+}
+
+/* #calculationContainer::before,
+#calculationContainer::after {
+  content: "";
+  position: absolute;
+  top: 5%; bottom: 5%;
+  width: 2px;
+  background: var(--z-calculationContainerBorderColor);
+  z-index: var(--z-calculationContainer);
+}
+
+#calculationContainer::before { left: 0; }
+#calculationContainer::after  { right: 0; } */
+
 /* Input */
+#numberInput {
+  background-color: var(--z-calculationContainerColor);
+  padding: 10px 10px 0 10px;
+  /* border: 2px solid var(--z-calculationContainerBorderColor); */
+  border-top: none;
+  border-bottom: none;
+}
+
 #numberInput input, #numberInput select {
   outline: none;
   margin-top: 4px 0;
@@ -258,15 +333,19 @@ div a:focus {
 }
 
 /* Result */
+
 #resultPreview {
   /*margin: @media;*/
   padding: 20px;
-  background-color: #024a0189;
+  background-color: #459c45;
+/*background-color: #649e64; */ /* Non-Transparent Original */
+/*background-color: #024a0189; */ /* Original */
   border-radius: 5px;
   box-sizing: border-box;
   box-shadow: 0 0 20px rgba(0, 44, 1, 0.658);
-  z-index: -4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: var(--z-resultPreview);
   }
 
 .result { /* bu kodu veren kişiye teşşekkürler */

@@ -152,10 +152,9 @@ function calculate() {
   });
 }
 
-/*
-// WIP - Math Type Switch (byCount / byBill!new)
-function calculate(TEST) {
-  if (mathType == byCount) {
+/* // WIP - Math Type Switch (byCount / byBill!new)
+function calculate() {
+  if (calculationMode == byCount) {
     // --byCount START--
     const coal = parseFloat(document.getElementById("coalInput").value) || 0;
     const electric = parseFloat(document.getElementById("electricInput").value) || 0;
@@ -193,7 +192,7 @@ function calculate(TEST) {
   
     reward(globalResult);
     // --byCount END--
-  } else if (condition) {
+  } else if (calculationMode == byBill) {
     // --byBill START--
     const coal = parseFloat(document.getElementById("coalBillInput").value) || 0;
     const electric = parseFloat(document.getElementById("electricBillInput").value) || 0;
@@ -206,12 +205,12 @@ function calculate(TEST) {
     const gasUnit = document.getElementById("gasBillUnit").value;
 
     // TL Factors // THE EQUATIONS ARE NEEDED!!! DON'T FORGET ALL OF THEM ARE BILLED DIFFERENTLY AND HAVE TAX
-    const coalFactor = 0;           // kg CO₂ / TL
-    const electricFactor = 0;       // kg CO₂ / TL
-    const flightFactorPerTrip = 0;   // kg CO₂ / TL
-    const flightFactorPerKm = 0;    // kg CO₂ / TL
-    const fuelFactor = fuelType === "diesel" ? 0 : 0; // kg CO₂ / TL
-    const gasFactor = gasUnit === "per-tank" ? 0 : 0; // kg CO₂ / TL
+    const coalFactor = 1;           // kg CO₂ / TL
+    const electricFactor = 2;       // kg CO₂ / TL
+    const flightFactorPerTrip = 3;   // kg CO₂ / TL
+    const flightFactorPerKm = 4;    // kg CO₂ / TL
+    const fuelFactor = fuelType === "diesel" ? 5 : 6; // kg CO₂ / TL
+    const gasFactor = gasUnit === "per-tank" ? 7 : 8; // kg CO₂ / TL
 
     const flightResult = (flightUnit === "trip")
       ? (flight * flightFactorPerTrip)

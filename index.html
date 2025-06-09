@@ -156,50 +156,98 @@
               <input id="byBill" class="rightside not-selected" type="button" value="Tutar/Fatura (₺) ile Hesaplama">
             </div>
             <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
-              <!-- kömür -->
-              <p class="pNoSelect">1. Her ay en az kaç kilo kömür kullanıyorsunuz?<br>
-                <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"> </label>
-              </p>
-              <!-- elektrik -->
-              <p class="pNoSelect">2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz? <br>
-                <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
-              </p>
-              <!-- uçak -->
-              <p class="pSelect">3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
-                <label>
-                  <div class="inputPair">
-                    <input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!">
-                    <select id="flightUnit">
-                      <option value="trip">Yolculuk (Gidiş-Dönüş) </option>
-                      <option value="km">Kilometre (Tek yön)</option>
-                    </select>
-                  </div>
-                </label>
-              </p>
-              <!-- araba yakıtı -->
-              <p class="pSelect">4. Her ay en az kaç litre araba yakıtı tüketiyorsunuz? <br>
-                <label>
-                  <div class="inputPair">
-                    <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!">
-                    <select id="fuelType">
-                      <option value="gasoline">Benzin</option>
-                      <option value="diesel">Dizel</option>
-                    </select>
-                  </div>
-                </label>
-              </p>
-              <!-- doğal gaz -->
-              <p class="pSelect">5. Her ay en az ne kadar doğal gaz tüketiyorsunuz?<br>
-                <label>
-                  <div class="inputPair">
-                    <input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!">
-                    <select id="gasUnit">
-                      <option value="cubic-metre">m³ (Metre Küp)</option>
-                     <option value="per-tank">Tüp (12Kg)</option>
-                    </select>
-                  </div>
-                </label>
-              </p>
+              <div id="countInputs">
+                <!-- CI kömür -->
+                <p class="pNoSelect">1. Her ay en az kaç kilo kömür kullanıyorsunuz?<br>
+                  <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"></label>
+                </p>
+                <!-- CI elektrik -->
+                <p class="pNoSelect">2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz? <br>
+                  <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
+                </p>
+                <!-- CI uçak -->
+                <p class="pSelect">3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="flightUnit">
+                        <option value="trip">Yolculuk (Gidiş-Dönüş)</option>
+                        <option value="km">Kilometre (Tek yön)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- CI araba yakıtı -->
+                <p class="pSelect">4. Her ay en az kaç litre araba yakıtı tüketiyorsunuz? <br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="fuelType">
+                        <option value="gasoline">Benzin</option>
+                        <option value="diesel">Dizel</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- CI doğal gaz -->
+                <p class="pSelect">5. Her ay en az ne kadar doğal gaz tüketiyorsunuz? <br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="gasUnit">
+                        <option value="cubic-metre">m³ (Metre Küp)</option>
+                       <option value="per-tank">Tüp (12Kg)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+              </div>
+              <div id="billInputs">
+                <!-- BI kömür -->
+                <p class="pNoSelect">1. Her ay en az kaç liralık (₺) kömür harcıyorsunuz?<br>
+                  <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!" disabled></label>
+                </p>
+                <!-- BI elektrik -->
+                <p class="pNoSelect">2. Her ay ortalama olarak en az kaç liralık (₺) bir elektrik faturanız vardır? <br>
+                  <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!" disabled></label>
+                </p>
+                <!-- BI uçak -->
+                <p class="pSelect">3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!" disabled>
+                      <select id="flightUnit" disabled>
+                        <option value="trip">Yolculuk (Gidiş-Dönüş)</option>
+                        <option value="km">Kilometre (Tek yön)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- BI araba yakıtı -->
+                <p class="pSelect">4. Her ay en az kaç liralık (₺) araba yakıtı tüketiyorsunuz? <br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!" disabled>
+                      <select id="fuelType" disabled>
+                        <option value="gasoline">Benzin</option>
+                        <option value="diesel">Dizel</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- BI doğal gaz -->
+                <p class="pSelect">5. Her ay en az kaç liralık (₺) doğal gaz tüketiyorsunuz? <br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!" disabled>
+                      <select id="gasUnit" disabled>
+                        <option value="cubic-metre">m³ (Metre Küp)</option>
+                       <option value="per-tank">Tüp (12Kg)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+              </div>
             </div>
             <div id="resultPreview">
               <!-- From Uiverse.io by MuhammadHasann --> <!-- the svg animation stuff is from him -->

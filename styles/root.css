@@ -18,8 +18,8 @@
   --z-resultPreview: 2;
 
   /* simpleui.css */ /* .sidebar */
-  --z-ui: 5; /* .simple-ui */ /* .sidebar */
-  --z-uiButtonReal: 6; /* #sidebarRealButton */
+  --z-ui: 100; /* .simple-ui */ /* .sidebar */
+  --z-uiButtonReal: 99; /* #sidebarRealButton */
 
   /* mathswitch.css*/
   --z-SMTD: 10; /* #switch-math-type-div */

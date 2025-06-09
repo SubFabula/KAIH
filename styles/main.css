@@ -259,22 +259,20 @@ div a:focus {
 }
 
 #calculationContainerBorderLeft {
-  border-left: 2px solid ;
+  border-left: 2px solid var(--z-calculationContainerBorderColor);
   position: absolute;
-  top: 5%;
+  top: 2%;
   bottom: 10%;
   left: 0;
-  color: var(--z-calculationContainerBorderColor);
   z-index: var(--z-calculationContainerBorder);
 }
 
 #calculationContainerBorderRight {
-  border-left: 2px solid ;
+  border-left: 2px solid var(--z-calculationContainerBorderColor);
   position: absolute;
-  top: 5%;
+  top: 2%;
   bottom: 10%;
   right: 0;
-  color: var(--z-calculationContainerBorderColor);
   z-index: var(--z-calculationContainerBorder);
 }
 

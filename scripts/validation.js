@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  calculationFields = document.querySelectorAll('#numberInput input[type="number"]'); // turned this to global
+  calculationFields = document.querySelectorAll('#countInputs input[type="number"]'); // turned this to global
 });
 
 // STYLE // Visible validation by style

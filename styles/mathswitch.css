@@ -12,13 +12,14 @@
 /* ^ Desktop ^ */
 
 #switch-math-type-div {
+  height: 36px;
   display: flex;
   flex-grow: initial;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   border-radius: 10px 10px 0 0;
-  background-color: var(--z-calculationContainerColor);
+  background-color: var(--z-containerColor);
   z-index: var(--z-SMTD);
   position: relative;
 }
@@ -29,12 +30,11 @@
   cursor: pointer;
   flex-grow: 1;
   transition: background-color    0.4s ease-in-out,
-              position            0.4s ease-in-out,
-              transform           0.4s ease-in-out,
-              margin-bottom       0.4s ease-in-out,
-              padding-bottom      0.4s ease-in-out,
-              border-bottom-color 0.4s ease-out,
-              border-radius       0.4s ease-in-out;
+              transform           0.4s cubic-bezier(.58,-0.72,.56,2.02),
+              margin-bottom       0.4s cubic-bezier(.58,-0.72,.56,2.02),
+              padding-bottom      0.4s cubic-bezier(.58,-0.72,.56,2.02),
+              border-bottom-color 0.4s linear,
+              border-radius       0.4s ease-in-out;      
   background-color: var(--z-non-selectedColor);
 }
 
@@ -44,11 +44,10 @@
   border-bottom: none;
   border-radius: 10px 10px 0 0;
   z-index: var(--z-selected);
-
   position: relative;
   transform: translateY(-10px);
-  margin-bottom: -10px;
-  padding-bottom: 18px;
+  margin-bottom: -10.2px;
+  padding-bottom: 20px;
 }
 
 #switch-math-type-div input.not-selected {
@@ -63,4 +62,8 @@
 #switch-math-type-div input.rightside.not-selected {
   border-left: none;
   border-radius: 0 10px 0 0;
+}
+
+#billInputs {
+  display: none;
 }

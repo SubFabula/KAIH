@@ -12,7 +12,7 @@
   --z-calculationContainer: 1; /* #calculationContainer */
   --z-calculationContainerBorder: 1; /* #calculationContainerBorderLeft and #calculationContainerBorderRight */
   --z-calculationContainerBorder_Border: 2px solid var(--z-calculationContainerBorderColor);
-  --z-calculationContainerTop_Border: 2%;
+  --z-calculationContainerTop_Border: 1.5%;
   --z-calculationContainerBottom_Border: 10%;
   --z-calculationContainerColor: #94fa92; /* #calculationContainer and #switch-math-type-div *ANY* */
   --z-calculationContainerBorderColor: #55b053; /* #calculationContainer and #switch-math-type-div *ANY* */

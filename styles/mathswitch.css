@@ -1,22 +1,33 @@
 @charset "UTF-8";
 /* v Mobile v */
-@media (max-width: 720px) {
-
+@media (max-width: 719px) {
+  #switch-math-type-div {
+    height: 60px; /* 50px */
+    flex-wrap: nowrap; /* The wrapped version is actually cool. Try to implement a logic to have a different set of styles accordingly. (If it is wrapped or not wrapped) */
+  }
+  
+  #switch-math-type-div input {
+    text-wrap: balance;
+  }
 }
 /* ^ Mobile ^ */
 
 /* v Desktop v */
 @media (min-width: 720px) {
-
+  #switch-math-type-div {
+    height: 40px; /* 36px */
+    flex-wrap: nowrap;
+  }
 }
 /* ^ Desktop ^ */
 
 #switch-math-type-div {
-  height: 36px;
+/*height: clamp(3.25rem, 2vw, 1.125rem); <- Mine
+  I still don't know how to use these.
+  height: clamp(2.25rem, 4vw, 3.125rem); <- DeepSeek AI */
   display: flex;
   flex-grow: initial;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-evenly;
   border-radius: 10px 10px 0 0;
   background-color: var(--z-containerColor);

@@ -97,6 +97,9 @@
     <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/langSwitch.js"></script>
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
+    <!-- Debug -->
+    <script defer src="scripts/_debugLogger.js"></script>
+    <!-- /Debug -->
   </head>
   <body>
     <div class="sidebar closed" id="sidebar" > <!-- sidebar closed is the default and will change to sidebar open when clicked on -->
@@ -250,7 +253,7 @@
             </div>
             <div id="resultPreview">
               <!-- From Uiverse.io by MuhammadHasann --> <!-- the svg animation stuff is from him -->
-              <button id="calculateButton">Calculate
+              <button id="calculateButton" class="byCountCB">Calculate
                 <div class="icon-1">
                   <svg
                     xmlns:xlink="http://www.w3.org/1999/xlink"

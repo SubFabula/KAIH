@@ -15,11 +15,13 @@
     font-size: clamp(0.7rem, 1.8vw, 1.5rem);
   }
 
-
   #background-wrapper, #img-foreground {
     height: 1000px;
-
   }
+
+/*#calculationContainer {
+    Because there is no div for the text right after the <div class="container">, the whole thing has to move with it. So either just leave this as it is and have a separate cool looking effect on the mobile side or try to fix and match the desktop one.
+  }*/
 
   #numberInput input, #numberInput select {
     padding-top: 10px;

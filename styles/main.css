@@ -259,19 +259,19 @@ div a:focus {
 }
 
 #calculationContainerBorderLeft {
-  border-left: 2px solid var(--z-calculationContainerBorderColor);
+  border-left: var(--z-calculationContainerBorder_Border);
   position: absolute;
-  top: 2%;
-  bottom: 10%;
+  top: var(--z-calculationContainerTop_Border);
+  bottom: var(--z-calculationContainerBottom_Border);
   left: 0;
   z-index: var(--z-calculationContainerBorder);
 }
 
 #calculationContainerBorderRight {
-  border-left: 2px solid var(--z-calculationContainerBorderColor);
+  border-left: var(--z-calculationContainerBorder_Border);
   position: absolute;
-  top: 2%;
-  bottom: 10%;
+  top: var(--z-calculationContainerTop_Border);
+  bottom: var(--z-calculationContainerBottom_Border);
   right: 0;
   z-index: var(--z-calculationContainerBorder);
 }

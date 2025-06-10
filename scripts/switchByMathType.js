@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  calculationFieldsbyCount = document.querySelectorAll('#countInputs input', '#countInputs select');
-  calculationFieldsbyBill = document.querySelectorAll('#billInputs input', '#billInputs select');
+  globalThis.calculationMode = "byCount";
+
+  globalThis.calculationFieldsbyCount = document.querySelectorAll('#countInputs input[type="number"]');
+  globalThis.calculationFieldsbyBill = document.querySelectorAll('#billInputs input[type="number"]');
 
   document.getElementById("byCount").addEventListener("click", () => {
     calculationMode = "byCount";
@@ -11,9 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("byBill").classList.add("not-selected");
     
     document.getElementById("countInputs").style.display = "block";
-    calculationFieldsbyCount.disabled = false;
+    /* setDisabled(window.calculationFieldsbyCount, false); */
     document.getElementById("billInputs").style.display = "none";
-    calculationFieldsbyBill.disabled = true;
+    /* setDisabled(window.calculationFieldsbyBill, true); */
+
+    calculateButton.classList.add("byCountCB");
+    calculateButton.classList.remove("byBillCB");
   });
 
   document.getElementById("byBill").addEventListener("click", () => {
@@ -25,8 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("byCount").classList.add("not-selected");
 
     document.getElementById("countInputs").style.display = "none";
-    calculationFieldsbyCount.disabled = true;
+    /* setDisabled(window.calculationFieldsbyCount, true); */
     document.getElementById("billInputs").style.display = "block";
-    calculationFieldsbyBill.disabled = false;
+    /* setDisabled(window.calculationFieldsbyBill, false); */
+
+    calculateButton.classList.remove("byCountCB");
+    calculateButton.classList.add("byBillCB");
   });
 });

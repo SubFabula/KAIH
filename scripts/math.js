@@ -1,11 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const switchMathDiv = document.getElementById("switch-math-type-div");
-  const byCount = document.getElementById("byCount");
-  const byBill = document.getElementById("byBill");
-  byCount.addEventListener("click", switchToCount);
-  byBill.addEventListener("click", switchToBill);
-});
-
 function calculate() {
   const coal = parseFloat(document.getElementById("coalInput").value) || 0;
   const electric = parseFloat(document.getElementById("electricInput").value) || 0;
@@ -29,17 +21,127 @@ function calculate() {
     ? (flight * flightFactorPerTrip)
     : (flight * flightFactorPerKm);
 
-  const coalResult = coal * coalFactor;
-  const electricResult = electric * electricFactor;
-  const fuelResult = fuel * fuelFactor;
-  const gasResult = gas * gasFactor;
+  reward(globalResult);
+}
 
-  const globalResult =
-    coalResult +
-    electricResult +
+
+
+
+
+// WIP - Math Type Switch (byCount / byBill!new)
+document.addEventListener("DOMContentLoaded", () => {
+  globalThis.finalResult = null;
+});
+
+let flightResult = null;
+
+function calculate() {
+  if (calculationMode === "byCount") {
+    calculateByCount();
+    if (dev_log) {
+      console.warn("byCount calculation is ran!");
+    }
+  } else if (calculationMode === "byBill") {
+    calculateByBill();
+    if (dev_log) {
+      console.warn("byBill calculation is ran!");
+    }
+  }
+}
+
+// --byCount START--
+function calculateByCount() {
+  globalThis.coal = parseFloat(document.getElementById("coalInput").value) || 0;
+  globalThis.electric = parseFloat(document.getElementById("electricInput").value) || 0;
+  globalThis.flight = parseFloat(document.getElementById("flightInput").value) || 0;
+  globalThis.fuel = parseFloat(document.getElementById("fuelInput").value) || 0;
+  globalThis.gas = parseFloat(document.getElementById("gasInput").value) || 0;
+  
+  const flightUnit = document.getElementById("flightUnit").value;
+  const fuelType = document.getElementById("fuelType").value;
+  const gasUnit = document.getElementById("gasUnit").value;
+  
+  // CO₂ Factors
+  globalThis.coalFactor = 2.45;           // kg CO₂ / kg coal (Turkey/IPCC avg)
+  globalThis.electricFactor = 0.41;       // kg CO₂ / kWh
+  const flightFactorPerTrip = 145;   // kg CO₂ / round trip
+  const flightFactorPerKm = 0.18;    // kg CO₂ / km
+  globalThis.fuelFactor = fuelType === "diesel" ? 2.68 : 2.33; // kg CO₂ / by diesel or fuel
+  globalThis.gasFactor = gasUnit === "per-tank" ? 23.5 : 2.05; // kg CO₂ / per tank or m³
+  
+  flightResult = (flightUnit === "trip")
+    ? (flight * flightFactorPerTrip)
+    : (flight * flightFactorPerKm);
+  
+  finalResult =
+    (coal * coalFactor) +
+    (electric * electricFactor) +
     flightResult +
-    fuelResult +
-    gasResult;
+    (fuel * fuelFactor) +
+    (gas * gasFactor);
+  
+  document.getElementById("result").innerText =
+    isEnglish
+      ? `Supposed Carbon Foot Print: ${finalResult.toFixed(2)} kg CO₂/year`
+      : `Tahmini Karbon Ayak İzi: ${finalResult.toFixed(2)} kg CO₂/yıl`;
+  
+  results();
+}
+// --byCount END--
+
+// --byBill START--
+function calculateByBill() {
+  globalThis.coalBill = parseFloat(document.getElementById("coalBillInput").value) || 0;
+  globalThis.electricBill = parseFloat(document.getElementById("electricBillInput").value) || 0;
+  globalThis.flightBill = parseFloat(document.getElementById("flightBillInput").value) || 0;
+  globalThis.fuelBill = parseFloat(document.getElementById("fuelBillInput").value) || 0;
+  globalThis.gasBill = parseFloat(document.getElementById("gasBillInput").value) || 0;
+
+  const flightBillUnit = document.getElementById("flightBillUnit").value;
+  const fuelBillType = document.getElementById("fuelBillType").value;
+  const gasBillUnit = document.getElementById("gasBillUnit").value;
+
+  // TL Factors // THE EQUATIONS ARE NEEDED!!! DON'T FORGET ALL OF THEM ARE BILLED DIFFERENTLY AND HAVE TAX
+  globalThis.coalBillFactor = 1;           // kg CO₂ / TL
+  globalThis.electricBillFactor = 2;       // kg CO₂ / TL
+  const flightBillFactorPerTrip = 3;   // kg CO₂ / TL
+  const flightBillFactorPerKm = 4;    // kg CO₂ / TL
+  globalThis.fuelBillFactor = fuelBillType === "diesel" ? 5 : 6; // kg CO₂ / TL
+  globalThis.gasBillFactor = gasBillUnit === "per-tank" ? 7 : 8; // kg CO₂ / TL
+
+  const flightBillResult = (flightBillUnit === "trip")
+    ? (flightBill * flightBillFactorPerTrip)
+    : (flightBill * flightBillFactorPerKm);
+
+  finalResult =
+    (coalBill * coalBillFactor) +
+    (electricBill * electricBillFactor) +
+    flightBillResult +
+    (fuelBill * fuelBillFactor) +
+    (gasBill * gasBillFactor);
+
+  document.getElementById("result").innerText =
+    isEnglish
+      ? `Supposed Carbon Foot Print: ${finalResult.toFixed(2)} kg CO₂/year`
+      : `Tahmini Karbon Ayak İzi: ${finalResult.toFixed(2)} kg CO₂/yıl`;
+
+  results();
+}
+// --byBill END--
+
+function results() {
+
+  if (calculationMode === "byCount") {
+    coalResult = coal * coalFactor;
+    electricResult = electric * electricFactor;
+    fuelResult = fuel * fuelFactor;
+    gasResult = gas * gasFactor;
+  } else if (calculationMode === "byBill") {
+    coalResult = coalBill * coalBillFactor;
+    electricResult = electricBill * electricBillFactor;
+    fuelResult = fuelBill * fuelBillFactor;
+    gasResult = gasBill * gasBillFactor;
+  }
 
   const resultDiv = document.getElementById("result")
   const chartDiv = document.getElementById("chart-container")
@@ -114,10 +216,10 @@ function calculate() {
     }
   });
 
-  const totalCF = (globalResult).toFixed(2);
+  const totalCF = (finalResult).toFixed(2);
   const turkeyAvg = 4500;
   const unAvg = 7000;
-  const annualCF = (globalResult * 12);
+  const annualCF = (finalResult * 12);
   const annualCFtoF2 = (annualCF).toFixed(2);
   const treesNeeded = Math.ceil((annualCF / 21));
 
@@ -145,90 +247,13 @@ function calculate() {
          <p>${annualCF < turkeyAvg ? "✅ Türkiye yıllık ortalamasının altındasınız." : "⚠️ Türkiye yıllık ortalamasının üzerindesiniz."}</p>
         `;
 
-  reward(globalResult);
+  reward(finalResult);
 
-  document.getElementById("result").scrollIntoView({
-    behavior: "smooth"
-  });
-}
+  let rewardVideo = document.getElementById("rewardVideo");
 
-/* // WIP - Math Type Switch (byCount / byBill!new)
-function calculate() {
-  if (calculationMode == byCount) {
-    // --byCount START--
-    const coal = parseFloat(document.getElementById("coalInput").value) || 0;
-    const electric = parseFloat(document.getElementById("electricInput").value) || 0;
-    const flight = parseFloat(document.getElementById("flightInput").value) || 0;
-    const fuel = parseFloat(document.getElementById("fuelInput").value) || 0;
-    const gas = parseFloat(document.getElementById("gasInput").value) || 0;
-  
-    const flightUnit = document.getElementById("flightUnit").value;
-    const fuelType = document.getElementById("fuelType").value;
-    const gasUnit = document.getElementById("gasUnit").value;
-  
-    // CO₂ Factors
-    const coalFactor = 2.45;           // kg CO₂ / kg coal (Turkey/IPCC avg)
-    const electricFactor = 0.41;       // kg CO₂ / kWh
-    const flightFactorPerTrip = 145;   // kg CO₂ / round trip
-    const flightFactorPerKm = 0.18;    // kg CO₂ / km
-    const fuelFactor = fuelType === "diesel" ? 2.68 : 2.33; // kg CO₂ / by diesel or fuel
-    const gasFactor = gasUnit === "per-tank" ? 23.5 : 2.05; // kg CO₂ / per tank or m³
-  
-    const flightResult = (flightUnit === "trip")
-      ? (flight * flightFactorPerTrip)
-      : (flight * flightFactorPerKm);
-  
-    const globalResult =
-      (coal * coalFactor) +
-      (electric * electricFactor) +
-      flightResult +
-      (fuel * fuelFactor) +
-      (gas * gasFactor);
-  
-    document.getElementById("result").innerText =
-      isEnglish
-        ? `Supposed Carbon Foot Print: ${globalResult.toFixed(2)} kg CO₂/year`
-        : `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
-  
-    reward(globalResult);
-    // --byCount END--
-  } else if (calculationMode == byBill) {
-    // --byBill START--
-    const coal = parseFloat(document.getElementById("coalBillInput").value) || 0;
-    const electric = parseFloat(document.getElementById("electricBillInput").value) || 0;
-    const flight = parseFloat(document.getElementById("flightBillInput").value) || 0;
-    const fuel = parseFloat(document.getElementById("fuelBillInput").value) || 0;
-    const gas = parseFloat(document.getElementById("gasBillInput").value) || 0;
-
-    const flightUnit = document.getElementById("flightBillUnit").value;
-    const fuelType = document.getElementById("fuelBillType").value;
-    const gasUnit = document.getElementById("gasBillUnit").value;
-
-    // TL Factors // THE EQUATIONS ARE NEEDED!!! DON'T FORGET ALL OF THEM ARE BILLED DIFFERENTLY AND HAVE TAX
-    const coalFactor = 1;           // kg CO₂ / TL
-    const electricFactor = 2;       // kg CO₂ / TL
-    const flightFactorPerTrip = 3;   // kg CO₂ / TL
-    const flightFactorPerKm = 4;    // kg CO₂ / TL
-    const fuelFactor = fuelType === "diesel" ? 5 : 6; // kg CO₂ / TL
-    const gasFactor = gasUnit === "per-tank" ? 7 : 8; // kg CO₂ / TL
-
-    const flightResult = (flightUnit === "trip")
-      ? (flight * flightFactorPerTrip)
-      : (flight * flightFactorPerKm);
-
-    const globalResult =
-      (coal * coalFactor) +
-      (electric * electricFactor) +
-      flightResult +
-      (fuel * fuelFactor) +
-      (gas * gasFactor);
-
-    document.getElementById("result").innerText =
-      isEnglish
-        ? `Supposed Carbon Foot Print: ${globalResult.toFixed(2)} kg CO₂/year`
-        : `Tahmini Karbon Ayak İzi: ${globalResult.toFixed(2)} kg CO₂/yıl`;
-
-    reward(globalResult);
-    // --byBill END--
+  if (rewardVideo) {
+    document.getElementById("result").scrollIntoView({
+      behavior: "smooth"
+    });
   }
-} */
+}

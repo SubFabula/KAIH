@@ -1,4 +1,4 @@
-function reward(globalResult) {
+function reward(finalResult) {
   const rewardVideoPreDiv = document.getElementById("rewardVideoPreDiv")
   let rewardVideo = document.getElementById("rewardVideo");
   rewardVideoPreDiv.style.display = `block`;
@@ -21,9 +21,9 @@ function reward(globalResult) {
     rewardVideoContainerDiv.appendChild(rewardVideo); // Use the expected container
 
     // initial src set
-    if (globalResult <= 1000.00) {
+    if (finalResult <= 1000.00) {
       rewardVideo.src = "assets/videos/rewardgood.mp4";
-    } else if (globalResult > 1000.00) {
+    } else if (finalResult > 1000.00) {
       rewardVideo.src = "assets/videos/rewardbad.mp4";
     }
 
@@ -40,9 +40,9 @@ function reward(globalResult) {
     rewardVideo.style.display = "block";
 
     // after check and change of src
-    if (globalResult <= 1000.00) {
+    if (finalResult <= 1000.00) {
       rewardVideo.src = "assets/videos/rewardgood.mp4";
-    } else if (globalResult > 1000.00) {
+    } else if (finalResult > 1000.00) {
       rewardVideo.src = "assets/videos/rewardbad.mp4";
     }
   }

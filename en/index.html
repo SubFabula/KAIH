@@ -147,42 +147,107 @@
         <div class="container">
           <h2>Answer the questions below as accurately as possible and click the "Calculate" button after the last question to calculate your carbon footprint.</h2>
           <p><i>If you don't have or haven't used anything in the questions below, you can put a 0(zero) there. Also, click <a href="https://subfabula.github.io/KAIH/en/source/">here</a> to see how all of this is calculated.</i></p>
-          <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
-            <!-- kömür -->
-            <p>1. How many kilos of coal do you use every month?<br>
-              <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Please don't leave this empty!"></label>
-            </p>
-            <!-- elektrik -->
-            <p>2. How many kilowatts of electricity do you use every month?<br>
-              <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Please don't leave this empty!!"></label>
-            </p>
-            <!-- uçak -->
-            <p>3. How many times or how much distance did you cover by plane?<br>
-              <label><input type="number" id="flightInput" placeholder="Please don't leave this empty!">
-                <select id="flightUnit">
-                  <option value="trip">Travel Count (Round Trip)</option>
-                  <option value="km">Kilometer (One way)</option>
-                </select>
-              </label>
-            </p>
-            <!-- araba yakıtı -->
-            <p>4. How many litres of car fuel do you use every month?<br>
-              <label>
-                <input type="number" id="fuelInput" placeholder="Please don't leave this empty!">
-                <select id="fuelType">
-                  <option value="gasoline">Petrol/Gasoline</option>
-                  <option value="diesel">Diesel</option>
-                </select>
-              </label>
-            </p>
-            <!-- doğal gaz -->
-            <p>5. How much natural gas do you use at least every month?<br>
-              <label><input type="number" id="gasInput" placeholder="Please don't leave this empty!"></label>
-              <select id="gasUnit">
-                <option value="cubic-metre">m³ (Cubic Meter)</option>
-                <option value="per-tank">Tank (12Kg)</option>
-              </select>
-            </p>
+          <div id="calculationContainer">
+            <div id="calculationContainerBorderLeft"></div>
+            <div id="calculationContainerBorderRight"></div>
+            <div id="switch-math-type-div">
+              <input id="byCount" class="leftside selected" type="button" value="Calculate by Count">
+              <input id="byBill" class="rightside not-selected" type="button" value="Calculate by Bill(₺)">
+            </div>
+            <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
+              <div id="countInputs">
+                <!-- CI kömür -->
+                <p class="pNoSelect">1. How many kilos of coal do you use every month?<br>
+                  <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Please don't leave this empty!"></label>
+                </p>
+                <!-- CI elektrik -->
+                <p class="pNoSelect">2. How many kilowatts of electricity do you use every month?<br>
+                  <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Please don't leave this empty!"></label>
+                </p>
+                <!-- CI uçak -->
+                <p>3. How many times or how much distance did you cover by plane?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="flightInput" placeholder="Please don't leave this empty!">
+                      <select id="flightUnit">
+                        <option value="trip">Travel Count (Round Trip)</option>
+                        <option value="km">Kilometer (One way)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- CI araba yakıtı -->
+                <p>4. How many litres of car fuel do you use every month?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="fuelInput" placeholder="Please don't leave this empty!">
+                      <select id="fuelType">
+                        <option value="gasoline">Petrol/Gasoline</option>
+                        <option value="diesel">Diesel</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- CI doğal gaz -->
+                <p>5. How much natural gas do you use at least every month?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="gasInput" placeholder="Please don't leave this empty!">
+                      <select id="gasUnit">
+                        <option value="cubic-metre">m³ (Cubic Meter)</option>
+                        <option value="per-tank">Tank (12Kg)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+              </div>
+              <div id="billInputs">
+                <!-- BI kömür -->
+                <p class="pNoSelect">1. How much do you pay(₺) for a monthly use of coal?<br>
+                  <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Please don't leave this empty!"></label>
+                </p>
+                <!-- BI elektrik -->
+                <p class="pNoSelect">2. How much is your bill(₺) for a monthly use of electricity?<br>
+                  <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Please don't leave this empty!"></label>
+                </p>
+                <!-- BI uçak -->
+                <p>3. How many times or how much distance did you cover by plane in this month?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="flightInput" placeholder="Please don't leave this empty!">
+                      <select id="flightUnit">
+                        <option value="trip">Travel Count (Round Trip)</option>
+                        <option value="km">Kilometer (One way)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- BI araba yakıtı -->
+                <p>4. How much do you pay(₺) for a monthly use of car fuel?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="fuelInput" placeholder="Please don't leave this empty!">
+                      <select id="fuelType">
+                        <option value="gasoline">Petrol/Gasoline</option>
+                        <option value="diesel">Diesel</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+                <!-- BI doğal gaz -->
+                <p>5. How much do you pay(₺) for natural gas at least every month?<br>
+                  <label>
+                    <div class="inputPair">
+                      <input type="number" id="gasInput" placeholder="Please don't leave this empty!">
+                      <select id="gasUnit">
+                        <option value="cubic-metre">m³ (Cubic Meter)</option>
+                        <option value="per-tank">Tank (12Kg)</option>
+                      </select>
+                    </div>
+                  </label>
+                </p>
+              </div>
+            </div>
             <div id="resultPreview">
               <!-- From Uiverse.io by MuhammadHasann --> <!-- the svg animation stuff is from him -->
               <button id="calculateButton">Calculate

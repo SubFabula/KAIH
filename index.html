@@ -98,6 +98,9 @@
     <script defer src="scripts/reward.js"></script>
     <script defer src="scripts/langSwitch.js"></script>
     <!-- <script defer src="scripts/_localStorage/langPreference.js"></script> WIP -->
+    <!-- Debug -->
+    <script defer src="scripts/debugLogger_.js"></script>
+    <!-- /Debug -->
   </head>
   <body>
     <div class="sidebar closed" id="sidebar" > <!-- sidebar closed is the default and will change to sidebar open when clicked on -->
@@ -153,7 +156,7 @@
             <div id="calculationContainerBorderRight"></div>
             <div id="switch-math-type-div">
               <input id="byCount" class="leftside selected" type="button" value="Miktar ile Hesaplama">
-              <input id="byBill" class="rightside not-selected" type="button" value="Tutar/Fatura (₺) ile Hesaplama">
+              <input id="byBill" class="rightside not-selected" type="button" value="Tutar/Fatura(₺) ile Hesaplama">
             </div>
             <div id="numberInput"> <!-- Daha fazla soru ekle ve sıralamasını düzgün yap -->
               <div id="countInputs">
@@ -162,7 +165,7 @@
                   <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!"></label>
                 </p>
                 <!-- CI elektrik -->
-                <p class="pNoSelect">2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz? <br>
+                <p class="pNoSelect">2. Her ay en az kaç kilovat elektrik sarf ediyorsunuz?<br>
                   <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!"></label>
                 </p>
                 <!-- CI uçak -->
@@ -178,7 +181,7 @@
                   </label>
                 </p>
                 <!-- CI araba yakıtı -->
-                <p class="pSelect">4. Her ay en az kaç litre araba yakıtı tüketiyorsunuz? <br>
+                <p class="pSelect">4. Her ay en az kaç litre araba yakıtı tüketiyorsunuz?<br>
                   <label>
                     <div class="inputPair">
                       <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!">
@@ -190,7 +193,7 @@
                   </label>
                 </p>
                 <!-- CI doğal gaz -->
-                <p class="pSelect">5. Her ay en az ne kadar doğal gaz tüketiyorsunuz? <br>
+                <p class="pSelect">5. Her ay en az ne kadar doğal gaz tüketiyorsunuz?<br>
                   <label>
                     <div class="inputPair">
                       <input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!">
@@ -205,18 +208,18 @@
               <div id="billInputs">
                 <!-- BI kömür -->
                 <p class="pNoSelect">1. Her ay en az kaç liralık (₺) kömür harcıyorsunuz?<br>
-                  <label class="no-selectInput"><input type="number" id="coalInput" placeholder="Lütfen boş bırakmayın!" disabled></label>
+                  <label class="no-selectInput"><input type="number" id="coalBillInput" placeholder="Lütfen boş bırakmayın!"></label>
                 </p>
                 <!-- BI elektrik -->
                 <p class="pNoSelect">2. Her ay ortalama olarak en az kaç liralık (₺) bir elektrik faturanız vardır? <br>
-                  <label class="no-selectInput"><input type="number" id="electricInput" placeholder="Lütfen boş bırakmayın!" disabled></label>
+                  <label class="no-selectInput"><input type="number" id="electricBillInput" placeholder="Lütfen boş bırakmayın!"></label>
                 </p>
                 <!-- BI uçak -->
                 <p class="pSelect">3. Bu ay uçakla ne kadar yolculuk yaptınız?<br>
                   <label>
                     <div class="inputPair">
-                      <input type="number" id="flightInput" placeholder="Lütfen boş bırakmayın!" disabled>
-                      <select id="flightUnit" disabled>
+                      <input type="number" id="flightBillInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="flightBillUnit">
                         <option value="trip">Yolculuk (Gidiş-Dönüş)</option>
                         <option value="km">Kilometre (Tek yön)</option>
                       </select>
@@ -224,11 +227,11 @@
                   </label>
                 </p>
                 <!-- BI araba yakıtı -->
-                <p class="pSelect">4. Her ay en az kaç liralık (₺) araba yakıtı tüketiyorsunuz? <br>
+                <p class="pSelect">4. Her ay en az kaç liralık (₺) araba yakıtı tüketiyorsunuz?<br>
                   <label>
                     <div class="inputPair">
-                      <input type="number" id="fuelInput" placeholder="Lütfen boş bırakmayın!" disabled>
-                      <select id="fuelType" disabled>
+                      <input type="number" id="fuelBillInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="fuelBillType">
                         <option value="gasoline">Benzin</option>
                         <option value="diesel">Dizel</option>
                       </select>
@@ -236,11 +239,11 @@
                   </label>
                 </p>
                 <!-- BI doğal gaz -->
-                <p class="pSelect">5. Her ay en az kaç liralık (₺) doğal gaz tüketiyorsunuz? <br>
+                <p class="pSelect">5. Her ay en az kaç liralık (₺) doğal gaz tüketiyorsunuz?<br>
                   <label>
                     <div class="inputPair">
-                      <input type="number" id="gasInput" placeholder="Lütfen boş bırakmayın!" disabled>
-                      <select id="gasUnit" disabled>
+                      <input type="number" id="gasBillInput" placeholder="Lütfen boş bırakmayın!">
+                      <select id="gasBillUnit">
                         <option value="cubic-metre">m³ (Metre Küp)</option>
                        <option value="per-tank">Tüp (12Kg)</option>
                       </select>
@@ -251,7 +254,7 @@
             </div>
             <div id="resultPreview">
               <!-- From Uiverse.io by MuhammadHasann --> <!-- the svg animation stuff is from him -->
-              <button id="calculateButton">Hesapla
+              <button id="calculateButton" class="byCountCB">Hesapla
                 <div class="icon-1">
                   <svg
                     xmlns:xlink="http://www.w3.org/1999/xlink"

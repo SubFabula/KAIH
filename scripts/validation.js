@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
       visibleIndicatorOfValidation();
     }
   });
-
-  calculationFields = document.querySelectorAll('#countInputs input[type="number"]'); // turned this to global
 });
 
 // STYLE // Visible validation by style
@@ -23,11 +21,19 @@ function visibleIndicatorOfValidation() {
   isHovering = true;
   let allFilled = true;
 
-  calculationFields.forEach(input => {
-    if (input.value.trim() === "") {
-      allFilled = false;
-    }
-  });
+  if (calculationMode === "byCount") {
+    calculationFieldsbyCount.forEach(input => {  
+      if (input.value.trim() === "") {
+        allFilled = false;
+      }
+    });
+  } else if (calculationMode === "byBill") {
+    calculationFieldsbyBill.forEach(input => {  
+      if (input.value.trim() === "") {
+        allFilled = false;
+      }
+    });
+  }
 
   if (!allFilled) {
     calculateButton.style.backgroundColor = '#ff0000' ;
@@ -74,11 +80,19 @@ function vIOVforFieldsStop(event) {
 function requiredInputValidation(e) { e.preventDefault();
   let allFilled = true;
 
-  calculationFields.forEach(input => {  
-    if (input.value.trim() === "") {
-      allFilled = false;
-    }
-  });
+  if (calculationMode === "byCount") {
+    calculationFieldsbyCount.forEach(input => {  
+      if (input.value.trim() === "") {
+        allFilled = false;
+      }
+    });
+  } else if (calculationMode === "byBill") {
+    calculationFieldsbyBill.forEach(input => {  
+      if (input.value.trim() === "") {
+        allFilled = false;
+      }
+    });
+  }
 
   if (!allFilled) {
     if (isEnglish) {

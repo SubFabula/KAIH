@@ -11,6 +11,9 @@
   --z-containerColor: #d7fed6; /* .container and #switch-math-type-div input.selected in mathswitch.css*/
   --z-calculationContainer: 1; /* #calculationContainer */
   --z-calculationContainerBorder: 1; /* #calculationContainerBorderLeft and #calculationContainerBorderRight */
+  --z-calculationContainerBorder_Border: 2px solid var(--z-calculationContainerBorderColor);
+  --z-calculationContainerTop_Border: 2%;
+  --z-calculationContainerBottom_Border: 10%;
   --z-calculationContainerColor: #94fa92; /* #calculationContainer and #switch-math-type-div *ANY* */
   --z-calculationContainerBorderColor: #55b053; /* #calculationContainer and #switch-math-type-div *ANY* */
   --z-backgroundImg: -5; /* #background-wrapper */

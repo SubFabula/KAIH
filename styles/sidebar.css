@@ -183,6 +183,13 @@
   margin-bottom: 0;
 }
 
+#contacts #GitHub-icon {
+  height: 35px;
+  margin-left: 20px;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
 #contacts #info-header #info-icon {
   height: 30px;
   width: 100%;

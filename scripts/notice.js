@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   noticeContext.innerText =
     window.isEnglish
       ? "This WebSite is still under construction. Please be aware that there may be errors and unfinished content."
-      : "Bu WebSitesi halen yapım aşamasındadır. Olabilecek hatalar ve bitmemiş içeriklerden lütfen dikkat edin.";
+      : "Bu WebSitesi hâlen yapım aşamasındadır. Oluşabilecek hatalar ve eksik içerikler konusunda lütfen dikkatli olun.";
   noticeContext.style.fontSize = "1.5vw";
 
   // #noticeList Styles

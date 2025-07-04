@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   noticeDiv.append(noticeUI);
   noticeUI.append(noticeCloseIcon, noticeTitle, noticeContext, noticeList, noticeConfirmButton);
 
-
   // #noticeDiv Styles
   noticeDiv.style.top = "0"
   noticeDiv.style.left = "0"
@@ -60,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // #noticeTitle Styles
   noticeTitle.innerText =
-    window.isEnglish
+    isEnglish
       ? "NOTICE"
       : "BİLGİLENDİRME";
   noticeTitle.style.fontSize = "2vw";
 
   // #noticeContext Styles
   noticeContext.innerText =
-    window.isEnglish
+    isEnglish
       ? "This WebSite is still under construction. Please be aware that there may be errors and unfinished content."
       : "Bu WebSitesi hâlen yapım aşamasındadır. Oluşabilecek hatalar ve eksik içerikler konusunda lütfen dikkatli olun.";
   noticeContext.style.fontSize = "1.5vw";
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // #noticeList Styles
   noticeList.style.width = "20vw";
   noticeList.innerHTML =
-    window.isEnglish
+    isEnglish
     ? "<li>Calculation by Bill(₺) hasn't been setup yet. It will just factor the given data from 1 to 8.</li>"
     : "<li>Tutar/Fatura(₺) ile Hesaplama yöntemi henüz hazır değil. Girilen veriler sırasıyla 1'den 8 çarpılıyor.</li>";
   noticeList.style.fontSize = "1.25vw";
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   noticeConfirmButton.style.height = "10vh";
   noticeConfirmButton.style.aspectRatio = "1/2";
   noticeConfirmButton.innerText =
-    window.isEnglish
+    isEnglish
       ? "Okay! Got it."
       : "Tamamdır! Anlaşıldı.";
   noticeConfirmButton.style.fontSize = "1vw";

@@ -1,6 +1,15 @@
+function dev_Help() {
+  // These are the codes you can use.
+  console.info("dev_logSwitch(): (Shortcut -> Crtl + MetaKey) Let's you enable/disable the rest of the commands.");
+  console.info("_log(): Gives you a log of whatever was hard-coded to shown on repeat (every 3 seconds).");
+  console.info("_logRepeat: Do `_logRepeat = [Boolean]` do enable/disable the cycle of logging.");
+  console.info("setInterval([Repeated Function], [Cycle Interval], [Any Other Stuff]): [ID Number]: You can change the cycle time of any function by setting the Function and setting the cycle interval in milliseconds. You can also add some more stuff optionally, as well as and ID.");
+  console.info("dev_variableAlert(): Gives you a log of whatever variable was hard-coded to be logged by the _log() by it's set repeat cycle.");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   globalThis.dev_log = false;
-  globalThis.dev_shortCut = true;
+  globalThis.dev_shortCut = true; // Make it "false" to disable this.
   globalThis._logRepeat = true;
   globalThis._logRepeatInterval = null;
 

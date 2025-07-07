@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   noticeContext.id = "noticeContext";
   noticeList.id = "noticeList";
   noticeConfirmButton.id = "noticeConfirmButton";
-
-  noticeConfirmButton.addEventListener("click", noticeClose);
-
+  
   document.body.append(noticeDiv);
   noticeDiv.append(noticeUI);
   noticeUI.append(noticeCloseIcon, noticeTitle, noticeContext, noticeList, noticeConfirmButton);
@@ -101,6 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
   noticeUI.style.textWrap = "pretty";
 
   // #noticeCloseIcon Styles & Scripts
+  noticeCloseIcon.addEventListener("click", noticeClose);
+  
+  noticeCloseIcon.src = "assets/icons/close.svg";
+  noticeCloseIcon.style.position = "fixed";
+  noticeCloseIcon.style.top = "0";
+  noticeCloseIcon.style.right = "0";
+  noticeCloseIcon.style.margin = "6px";
+  
   function noticeClose() {
     noticeDiv.remove()
   }
@@ -123,11 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ? "<li>Calculation by Bill(₺) hasn't been setup yet. It will just factor the given data from 1 to 8.</li>"
     : "<li>Tutar/Fatura(₺) ile Hesaplama yöntemi henüz hazır değil. Girilen veriler sırasıyla 1'den 8 çarpılıyor.</li>";
 
-  // #noticeConfirmButton Styles
+  // #noticeConfirmButton Styles & Scripts
+  noticeConfirmButton.addEventListener("click", noticeClose);
+  
   noticeConfirmButton.innerText =
     isEnglish
       ? "Okay! Got it."
       : "Tamamdır! Anlaşıldı.";
+  
   noticeConfirmButton.disabled = "disabled";
   function noticeWaitForConfirmButton() {
     noticeConfirmButton.disabled = !noticeConfirmButton.disabled // "[thing].disabled = ![thing].disabled" enables the disabled [thing].
